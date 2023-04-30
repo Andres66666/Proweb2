@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* opcional, para centrar las tarjetas horizontalmente */
+}
+.card {
+    max-width: 18rem;
+    margin: 10px;
+}
+.nav-custom {
+    height: 80px; /* Ajusta el valor según tus necesidades */
+}
+.nav-custom .nav-link {
+    font-size: 1.2rem; /* Ajusta el valor según tus necesidades */
+}
+.logo {
+    font-size: 1.3rem; /* Ajusta el valor según tus necesidades */
+}
+.titulo {
+    font-size: 2rem; /* Ajusta el valor según tus necesidades */
+}
+.nav-custom .nav-link:hover {
+    border-radius: 15px; /*espesor del margen*/	
+	background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(255,255, 0, 0.5), green 100%);	
+    opacity: 0.8;
+}
