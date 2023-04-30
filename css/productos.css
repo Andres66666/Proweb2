@@ -25,18 +25,6 @@
     opacity: 0.8;
 }
 
-/*valoracion*/
-.clasificacion input[type='radio'] {
-    opacity: 0;
+.btn-floating:hover {
+    transform: scale(1.1);
   }
-  .clasificacion label {
-    font-size: 30px;
-    color:rgb(150, 150, 150);
-    cursor: pointer;
-  }
-  .clasificacion label:hover {
-    color: rgb(217, 215, 11);
-  }
-   .activo + label{
-   color: rgb(255, 230, 0) !important;
-   }
