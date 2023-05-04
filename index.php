@@ -76,7 +76,6 @@ $(document).ready(function() {
   select: function(start, end){
       $("#exampleModal").modal();
       $("input[name=fecha_inicio]").val(start.format('DD-MM-YYYY'));
-       
       var valorFechaFin = end.format("DD-MM-YYYY");
       var F_final = moment(valorFechaFin, "DD-MM-YYYY").subtract(1, 'days').format('DD-MM-YYYY'); //Le resto 1 dia
       $('input[name=fecha_fin').val(F_final);  
@@ -85,7 +84,7 @@ $(document).ready(function() {
       
     events: [
       <?php
-       while($dataEvento = mysqli_fetch_array($resulEventos)){ ?>
+        while($dataEvento = mysqli_fetch_array($resulEventos)){ ?>
           {
           _id: '<?php echo $dataEvento['id']; ?>',
           title: '<?php echo $dataEvento['evento']; ?>',
@@ -110,8 +109,7 @@ eventRender: function(event, element) {
   if (pregunta) {
 
     $("#calendar").fullCalendar("removeEvents", event._id);
-
-     $.ajax({
+      $.ajax({
             type: "POST",
             url: 'deleteEvento.php',
             data: {id:event._id},
