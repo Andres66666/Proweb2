@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de usuarios</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+        #contenido{	
+            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
+            width: 500px;
+            height: auto;
+	        margin: 0 auto;
+        }
+        .texto1 img{ /* estro realiza lo que es el separado del texto con la imagen  */
+            margin-right: 10px;
+	        margin-top: 10px;
+            position:relative;
+            width: 110px;
+            height: 110px;
+            float: left;
+        }
+
+        .form-group {
+
+            flex-direction: row;
+            margin-bottom: 5px;
+            margin-left: 10px;
+            
+        }
+        input {margin-left: 50px;}
+        label {margin-left: 10px; display: block;}
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
+        
+    </style>
+</head>
+<body>
+    <section id="contenido">
+        <form action="" class="form-group ">
+            <div class="texto1">
+                <h1>Usuarios </h1>
+                <img src="https://th.bing.com/th/id/OIP.lc0b_zl0YFjJMvyBnaXYZAHaE8?pid=ImgDet&rs=1">
+                <div class="form-group">
+                    <label for="">Código de usuario</label>
+                    <input type="text">
+                </div>
+                <div class="form-group" style="display:flex;">
+                    <label for="" style="display:flex;">Nivel de usuario</label><br>
+                    <input type="radio" name="nivel" id="admin" style="display:flex;"><label for="admin">Administrador</label>
+                    <input type="radio" name="nivel" id="user" style="display:flex;"><label for="user">Usuario</label>
+                </div>
+                <div class="form-group">
+                    <label for="">Contraseña </label>
+                    <input type="password">
+                </div> 
+                <div class="form-group">
+                    <label for="">Contraseña Contraseña</label>
+                    <input type="password">
+                </div> 
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" style="width: 270px;">
+                </div>
+                <div class="form-group">
+                    <label for="">Apellido</label>
+                    <input type="text" style="width: 270px;">
+                </div>
+                <div class="form-group" style="display: inline-flex;">
+                    <label for="" style="display: inline-flex;">Tipo de documentacion</label>
+                    <select name="Genero" id="Genero">
+                        <option value="Vacio">Vacio</option>
+                        <option value="Masculino">DNI</option>
+                        <option value="Femenino">CI</option>
+                    </select>
+                    <label for="">N de documentacion</label>
+                    <input type="text"><br>
+                </div>
+                
+                <div class="form-group" style="display: inline-flex;">
+                    <label for="">Nivel de usuario</label>
+                    <input type="radio" name="nivel" id="F"><label for="admin">Femenino</label>
+                    <input type="radio" name="nivel" id="M"><label for="user">Masculino</label>
+                </div>
+                <div class="form-group">
+                    <label for="">Telefono</label>
+                    <input type="number" style="width: 270px;"><br>
+                </div>
+                <div class="form-group">
+                    <label for="">E-mail</label>
+                    <input type="text" style="width: 270px;"><br>
+                </div>
+            </div>
+        </form>
+    </section>  
+</body>
+</html>
