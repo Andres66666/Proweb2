@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de usuarios</title>
+    <style>
+         body {
+            background-image: url(https://e1.pxfuel.com/desktop-wallpaper/508/876/desktop-wallpaper-beauty-parlour-model-beauty-parlour.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #contenido{	
+            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
+            width: 380px;
+            height: auto;
+            margin: 0 auto;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            padding: 20px;
+        }
+        .texto1 img{
+            margin-right: 10px;
+            margin-top: 10px;
+            position:relative;
+            width: 210px;
+            height: 210px;
+            float: left;
+        }
+
+        table {
+            margin: 0 auto;
+            text-align: left;
+            border-collapse: separate;
+            border-spacing:0 5px ;
+            width: 100%;
+        }
+        td{
+            padding: auto; 
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-family: "Latin Modern Roman"; font-style: italic;
+            color: white;
+        }
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;}
+        input{
+            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
+            color: aliceblue;
+        }
+        select{
+            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
+            color: white;
+        }
+        option{
+            color:black;
+        }
+
+
+
+        button {
+            background-color: #ccc;
+            border: 1px solid #999;
+            color: white; /* Color del texto */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 10px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+            text-transform: uppercase;
+        }
+
+
+        .form-buttons {
+            text-align: center; /* Centrar horizontalmente */
+            margin-top: 10px; /* Espacio entre el formulario y los botones */
+        }
+        h1{
+            text-align: center;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <section id="contenido">
+        <form action="" class="form-group">
+            <h1>Usuarios</h1>
+            <table>
+                <tr>
+                    <td>
+                        <div class="form-group" style="text-align: center;">
+                            <canvas style="border:black 1px dashed;" id="canvas" width="150px" height="150px"></canvas><br>
+                            <input type="file" id="imagen" name="imagen" style="display:none;" />
+                            <button type="button" id="btnCargarImagen">Cargar Imagen</button>
+                        </div>                      
+                    </td>
+                    <script>
+                       //obtener elementos
+                        var inputImagen = document.getElementById("imagen");
+                        var btnCargarImagen = document.getElementById("btnCargarImagen");
+                        var canvas = document.getElementById("canvas");
+                        var ctx = canvas.getContext("2d");
+
+                        //agregar evento click al botón de cargar imagen
+                        btnCargarImagen.addEventListener("click", function(){
+                        //simular click en input de tipo file
+                        inputImagen.click();
+                        });
+
+                        //agregar evento change al input de tipo file
+                        inputImagen.addEventListener("change", function(){
+                        //verificar si se seleccionó una imagen
+                        if (this.files && this.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                            //crear nueva imagen
+                            var img = new Image();
+                            img.onload = function() {
+                                //dibujar imagen en el canvas
+                                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                            };
+                            img.src = e.target.result;
+                            }
+                            reader.readAsDataURL(this.files[0]);
+                        }
+                        });
+
+                    </script>
+                    <td>
+                        <div class="form-group" style="margin-top: -25px;">
+                            <label for="">Código de usuario</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nivel de Usuario:</label>
+                            <select name="NivelUsuario" id="NivelUsuario" style="width: 170px;">
+                                <option value="Vacio"></option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Usuario">Usuario</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Contraseña:</label>
+                            <input type="password">
+                        </div> 
+                        <div class="form-group">
+                            <label for="">Confirmar Contraseña:</label>
+                            <input type="password">
+                        </div> 
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="">Nombres</label>
+                            <input type="text" style="width: 355px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="">Apellidos</label>
+                            <input type="text" style="width: 355px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="">Tipo de Documentacion:</label>
+                            <select name="Genero" id="Genero" style="width: 170px;">
+                                <option value="Vacio"></option>
+                                <option value="DNI">DNI</option>
+                                <option value="CI">CI</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="">N de documentacion</label>
+                            <input type="text">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="">Sexo:</label>
+                            <select name="Sexo" id="Sexo" style="width: 360px;">
+                                <option value="Vacio"></option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="">Telefono</label>
+                            <input type="number" style="width: 355px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="">E-mail</label>
+                            <input type="text" style="width: 355px;">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="form-buttons">
+                <button>Registrar</button>
+                <button>Limpiar</button>
+                <button>Cancelar</button>
+            </div>
+        </form>
+    </section>  
+</body>
+
+</html>

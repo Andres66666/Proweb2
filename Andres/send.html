@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Firebase Base de Datos III</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header center">
+            <img src="https://firebase.google.com/images/brand-guidelines/logo-standard.png" width="400px" alt="">
+        </div>
+        <h4>CRUD Firebase BDIII</h4>
+        <br>
+        <div class="form">
+            <div class="input-field">
+                <label>Nombre</label>
+                <input type="text">
+            </div>
+            <div class="input-field">
+                <label>Email</label>
+                <input type="text">
+            </div>
+            <div class="input-field">
+                <label>Mensaje</label>
+                <textarea class="materialize-textarea"></textarea>
+            </div>
+            <button class="waves-effect waves-light btn" type="submit">AGREGAR</button>
+        </div>
+    </div>
+<!-- add firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-database-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    const firebaseConfig = {
+        databaseURL: "https://bdiii-5cdf6-default-rtdb.firebaseio.com/"
+    }
+    firebase.initializeApp(firebaseConfig)
+
+    const database = firebase.database()
+
+
+    const submit = document.querySelector('button')
+    submit.onclick = () => sendData()
+
+
+    function sendData(){
+        var name = document.querySelectorAll('input')[0]
+        var email = document.querySelectorAll('input')[1]
+        var message = document.querySelector('textarea')
+
+        var listRef = database.ref('messages/')
+
+        var newRef = listRef.push()
+
+        newRef.set({
+
+            'name': name.value,
+            'email': email.value,
+            'message': message.value
+        });
+        alert('El registro a sido creado')
+    }
+</script>
+</body>
+</html>
