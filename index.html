@@ -26,9 +26,7 @@
 <body> 
     <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-light bg-light fixed-top nav-custom nav-link">
         <div class="container">
-
             <a class="navbar-brand mt-2 mt-lg-0" href="#" > <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo" loading="lazy"/> </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,10 +35,6 @@
                         <a class="nav-link logged-out text-black fw-bold"  href="#" data-bs-toggle="modal" data-bs-target="#signinModal"><li>Productos</li> </a>
                         <a class="nav-link logged-out text-black fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Servicios</a>
                         <a class="nav-link logged-out text-black fw-bold"  href="index.php" data-bs-toggle="" data-bs-target="">Citas</a>
-                        <a class="nav-link logged-out text-black fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Iniciar sesión</a>
-                        <a class="nav-link logged-out text-black fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Registrarse</a>
-                        <a class="nav-link logged-in text-black fw-bold" href="#" id="logout">Cerrar sesión</a>
-                        <li class="nav-item"><a class="nav-link disabled text-black ">Deshabilitado</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Descargar Catalogos</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -54,9 +48,11 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Logeo</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-black" href="#">Gestion de Usuarios</a></li>
+                                    <li><a class="dropdown-item text-black nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signinModal" >Iniciar Sesion</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item text-black" href="#">Gestion de Clientes</a></li>
+                                    <li><a class="dropdown-item text-black nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Registrate Clientes</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-black nav-link logged-in" href="#" id="logout">Cerrar Sesion</a></li>
                                 </ul>
                         </li>
                     </div>
@@ -108,7 +104,6 @@
                     </form>
                         <button type="button" class="btn btn-info" id="googleLogin">Google</button>
                         <button type="button" class="btn btn-primary" id="facebookLogin">Facebook</button>
-                        <button type="button" class="btn btn-dark" id="githubLogin">Github</button>
                 </div>
             </div>
         </div>
