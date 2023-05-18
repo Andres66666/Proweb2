@@ -12,7 +12,7 @@ $f_fin             = $_REQUEST['fecha_fin'];
 $seteando_f_final  = date('Y-m-d', strtotime($f_fin));  
 $fecha_fin1        = strtotime($seteando_f_final."+ 1 days");
 $fecha_fin         = date('Y-m-d', ($fecha_fin1));  
-$color_evento      = $_REQUEST['color_evento'];
+$color_evento      = ucwords($_REQUEST['color_evento']);
 
 
 $InsertNuevoEvento = "INSERT INTO eventoscalendar(
