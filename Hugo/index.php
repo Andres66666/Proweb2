@@ -237,6 +237,75 @@ eventClick:function(event){
 <!--------- WEB DEVELOPER ------>
 <!--------- URIAN VIERA   ----------->
 <!--------- PORTAFOLIO:  https://blogangular-c7858.web.app  -------->
-
+<div class="my-5" style="padding-left: 0; padding-right: 0;">
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-white" style=" background-color: #504f4f;">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+                <section class="">
+                <!--Grid row-->
+                <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="width: 400px;" >
+                    <h6 class="text-uppercase mb-4 font-weight-bold titulo text-center" style="color: #ffffff;">Nombre del Salon de belleza </h6>
+                    <p>
+                        El Salón de belleza Lindsay, 
+                        se encarga del arreglo personal en mujeres, varones 
+                        donde se realizan cortes, tintes, peinados, maquillado, 
+                        uñas, cejas y pestañas y otros.
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none" />
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2" style="width: 400px; padding-left: 100px;">
+                    <h6 class="text-uppercase mb-4 font-weight-bold titulo text-center" style="color: #ffffff;">Productos</h6>
+                    <p><a class="text-white">Accesorios</a></p>
+                    <p><a class="text-white">Maquillaje</a></p>
+                    <p><a class="text-white">Depilación</a></p>
+                    <p><a class="text-white">Uñas</a></p>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none" />
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none" />
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="width: 400px;">
+                    <h6 class="text-uppercase mb-4 font-weight-bold titulo text-center" style="color: #ffffff;">Contactos</h6>
+                    <p><i class="fas fa-home mr-3"></i> El Alto: Satelite, NY 10012, US</p>
+                    <p><i class="fas fa-envelope mr-3"></i> cya2024773@est.univalle.edu</p>
+                    <p><i class="fas fa-phone mr-3"></i> + 591 787 454 66</p>
+                    <p><i class="fas fa-map-marker-alt mr-3"></i><a style="color: white;" href="https://goo.gl/maps/EBKZjPLSdx3y3AnF6">Google Maps</a></p>
+                </div>
+                
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-4 text-center " style="width: 500px;">
+                    <h6 class="text-uppercase mb-4 font-weight-bold text-center titulo" style="color: #ffffff;">Síganos en nuetras redes </h6>
+                    <!-- Facebook -->
+                    <a class="btn btn-primary btn-floating m-1 rounded-circle btn-floating" style="background-color: #3b5998; font-size: 30px;" href="#!" role="button" ><i class="fab fa-facebook"></i> </a>      
+                    <!-- Twitter -->
+                    <a class="btn btn-primary btn-floating m-1 rounded-circle btn-lg btn-floating" style="background-color: #000000; font-size: 30px;" href="#!" role="button" ><i class="fab fa-tiktok"></i></a>
+                    <!-- Google -->
+                    <a class="btn btn-primary btn-floating m-1 rounded-circle btn-floating" style="background-color: #dd4b39; font-size: 30px;" href="#!" role="button" ><i class="fab fa-youtube"></i></a>
+                    <!-- Instagram -->
+                    <a class="btn btn-primary btn-floating m-1 rounded-circle btn-lg btn-floating" style="background-image: linear-gradient(135deg, #405DE6 0%, #5851DB 10%, 	#833AB4 20%, #C13584 30%, #E1306C 40%, #FD1D1D 50%, 	#F56040 60%, #F77737 70%,#FCAF45 80%, #FFDC80 100%); font-size: 30px;" href="#!" role="button" ><i class="fab fa-instagram"></i></a>
+                    <!-- Linkedin -->
+                </div>
+                </div>
+                <!--Grid row-->
+                </section>
+                <!-- Section: Links -->
+            </div>
+            <!-- Grid container -->
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)" >© 2023 Derechos de autor:
+                <a class="text-white" href="https://mdbootstrap.com/">Grupo Cian</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </div>
 </body>
 </html>
