@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de usuarios</title>
     <style>
-         body {
+        body {
             background-image: url(https://e1.pxfuel.com/desktop-wallpaper/508/876/desktop-wallpaper-beauty-parlour-model-beauty-parlour.jpg);
             background-size: cover;
             background-position: center;
@@ -94,21 +94,22 @@
     </style>
 </head>
 <body>
+
     <section id="contenido">
-        <form action="" class="form-group">
+        <form action="Todo.php" method="post"  class="form-group">
             <h1>Usuarios</h1>
             <table>
                 <tr>
                     <td>
                         <div class="form-group" style="text-align: center;">
                             <canvas style="border:black 1px dashed;" id="canvas" width="150px" height="150px"></canvas><br>
-                            <input type="file" id="imagen" name="imagen" style="display:none;" />
+                            <input type="file" id="IMG" name="IMG" style="display:none;" />
                             <button type="button" id="btnCargarImagen">Cargar Imagen</button>
                         </div>                      
                     </td>
                     <script>
                        //obtener elementos
-                        var inputImagen = document.getElementById("imagen");
+                        var inputImagen = document.getElementById("IMG");
                         var btnCargarImagen = document.getElementById("btnCargarImagen");
                         var canvas = document.getElementById("canvas");
                         var ctx = canvas.getContext("2d");
@@ -140,67 +141,37 @@
                     </script>
                     <td>
                         <div class="form-group" style="margin-top: -25px;">
-                            <label for="">Código de usuario</label>
-                            <input type="text">
+                            <label for="">CI</label>
+                            <input type="number" name="CI">
                         </div>
                         <div class="form-group">
-                            <label for="">Nivel de Usuario:</label>
-                            <select name="NivelUsuario" id="NivelUsuario" style="width: 170px;">
-                                <option value="Vacio"></option>
-                                <option value="Administrador">Administrador</option>
-                                <option value="Usuario">Usuario</option>
-                            </select>
+                            <label for="NOMBRES">Nombres</label>
+                            <input type="text" name="NOMBRES">
                         </div>
                         <div class="form-group">
-                            <label for="">Contraseña:</label>
-                            <input type="password">
-                        </div> 
+                            <label for="APELLIDO_PAT">APELLIDO_PAT</label>
+                            <input type="text" name="APELLIDO_PAT">
+                        </div>
                         <div class="form-group">
-                            <label for="">Confirmar Contraseña:</label>
-                            <input type="password">
-                        </div> 
+                            <label for="APELLIDO_MAT">APELLIDO_MAT</label>
+                            <input type="text" name="APELLIDO_MAT">
+                        </div>
                     </td>
                     
-                </tr>
+                </tr> 
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="">Nombres</label>
-                            <input type="text" style="width: 355px;">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div class="form-group">
-                            <label for="">Apellidos</label>
-                            <input type="text" style="width: 355px;">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-group">
-                            <label for="">Tipo de Documentacion:</label>
-                            <select name="Genero" id="Genero" style="width: 170px;">
-                                <option value="Vacio"></option>
-                                <option value="DNI">DNI</option>
-                                <option value="CI">CI</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-group">
-                            <label for="">N de documentacion</label>
-                            <input type="text">
+                            <label for="FECHA_NAC">FECHA_NAC</label>
+                            <input type="datetime-local" name="FECHA_NAC"  style="width: 360px;">
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="">Sexo:</label>
-                            <select name="Sexo" id="Sexo" style="width: 360px;">
+                            <label for="">SEXO:</label>
+                            <select name="SEXO" style="width: 360px;">
                                 <option value="Vacio"></option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
@@ -211,22 +182,34 @@
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="">Telefono</label>
-                            <input type="number" style="width: 355px;">
+                            <label for="">CATEGORIA</label>
+                            <select name="CATEGORIA" style="width: 360px;">
+                                <option value="Vacio"></option>
+                                <option value="DNI">MAQUILLADOR</option>
+                                <option value="CI">PEINADOR</option>
+                            </select>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="">E-mail</label>
-                            <input type="text" style="width: 355px;">
+                            <label for="TELEFONO">TELEFONO</label>
+                            <input type="number" style="width: 355px;" name="TELEFONO">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="CORREO">E-mail</label>
+                            <input type="email" style="width: 355px;" name="CORREO">
                         </div>
                     </td>
                 </tr>
             </table>
             <div class="form-buttons">
-                <button>Registrar</button>
+                <button type="submit" value="Registrar">Registrar</button>
                 <button>Limpiar</button>
                 <button>Cancelar</button>
             </div>
