@@ -56,79 +56,18 @@
                                 </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Logeo</a>
+                            <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">ingreso</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-black nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Iniciar Sesion</a></li>
-                                    <li><a class="dropdown-item text-black nav-link logged-in" href="#" id="logout">Cerrar Sesion</a></li>
-                                    <li><a class="nav-link logged-in dropdown-item text-black " href="Andres/Empleados.html" id="logout1">Registrar Empleado</a></li>
-                                    <li><a class="nav-link logged-in dropdown-item text-black " href="index.php" id="logout2">Reservas</a></li>
-                                    <li><a class="nav-link logged-in dropdown-item text-black " href="" id="logout3">Reportes</a></li>
-                                    <li id="registrarLi" style="display: none;"><a class="nav-link logged-in dropdown-item text-black" href="ruta_de_registrar">Registrar1</a></li>
-                                    <li id="reservasLi" style="display: none;"><a class="nav-link logged-in dropdown-item text-black" href="ruta_de_reservas">Reservas1</a></li>
-                                    <li id="reportesLi" style="display: none;"><a class="nav-link logged-in dropdown-item text-black" href="ruta_de_reportes">Reportes1</a></li>
-
+                                    <li><a class="nav-link logged-in dropdown-item text-black " href="index.html">Cerrar Sesion</a></li>
+                                    <li><a class="nav-link logged-in dropdown-item text-black " href="Andres/Empleados.php">Registrar Empleado</a></li>
+                                    <li><a class="nav-link logged-in dropdown-item text-black " href="">Reservas</a></li>
+                                    <li><a class="nav-link logged-in dropdown-item text-black " href="">Reportes</a></li>
                                 </ul>
                         </li>
-                        <!-- Script JavaScript para controlar la visibilidad de Reservas y Reportes -->
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                // Obtener referencia a los elementos
-                                var registrarLi = document.getElementById('registrarLi');
-                                var reservasLi = document.getElementById('reservasLi');
-                                var reportesLi = document.getElementById('reportesLi');
-                        
-                                // Función para verificar el estado de inicio de sesión
-                                function isLoggedIn() {
-                                    // Verificar si existe un valor de inicio de sesión en las cookies o en el almacenamiento local
-                                    // Puedes ajustar la lógica según cómo estés almacenando el estado de inicio de sesión en el cliente
-                        
-                                    // Ejemplo utilizando las cookies
-                                    var sessionCookie = document.cookie.match(/(^|;) ?admin=([^;]*)(;|$)/);
-                                    if (sessionCookie) {
-                                        return sessionCookie[2] === 'true'; // Devuelve true si la cookie existe y tiene el valor 'true'
-                                    }
-                        
-                                    // Ejemplo utilizando el almacenamiento local
-                                    var sessionData = localStorage.getItem('admin');
-                                    return sessionData === 'true'; // Devuelve true si existe un valor 'true' en el almacenamiento local
-                                }
-                        
-                                // Mostrar u ocultar elementos según el estado de inicio de sesión
-                                if (isLoggedIn()) {
-                                    registrarLi.style.display = 'block';
-                                    reservasLi.style.display = 'block';
-                                    reportesLi.style.display = 'block';
-                                } else {
-                                    registrarLi.style.display = 'none';
-                                    reservasLi.style.display = 'none';
-                                    reportesLi.style.display = 'none';
-                                }
-                            });
-                        </script>
                     </div>
                 </div>
         </div>
     </nav>
-    <!-- Iniciar sesion -->
-    <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignin" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Iniciar Sesión</h3>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="login-form" action="Andres/Admistrador.php" method="post">
-                        <label for="USUARIO">Usuario</label>
-                        <input type="text" name="USUARIO" class="form-control mb-3" placeholder="Usuario" required>
-                        <label for="CONTRASENIA">Contraseña:</label>
-                        <input type="contraseña" name="CONTRASENIA" class="form-control mb-3" placeholder="Contraseña" required>
-                        <button type="submit" class="btn btn-success w-100 mb-4">Iniciar Sesión</button>            
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Toastify js -->

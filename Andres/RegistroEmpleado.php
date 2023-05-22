@@ -1,3 +1,4 @@
+
 <?php
 
 ini_set("display_errors","on");
@@ -39,9 +40,9 @@ if (mysqli_num_rows($resultado) > 0) {
     $ok = Empleado($conexion, $ID_EMPLEADO, $NOMBRE, $APELLIDO_PAT, $APELLIDO_MAT, $F_CONTRATACION, $SEXO, $ESPECIALIDAD, $TELEFONO, $E_MAIL, $FOTO, $ID_ADMINISTRADOR);
 
     if ($ok == false){
-        echo "Error al insertar datos<br/>";
+        echo '<script>alert("Error al insertar los datos");</script>';
     } else {
-        echo "Datos insertados correctamente<br/>";
+        echo '<script>alert("Datos insertados correctamente");</script>';
     }
 
     // Asignar el valor del ID_ADMINISTRADOR al campo correspondiente en el formulario

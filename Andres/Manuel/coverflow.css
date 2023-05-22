@@ -1,0 +1,76 @@
+
+.contenido1{   
+	font-size: 25px; /*esto es para el tamno de la letra*/ 
+	line-height: 1.5; /*esto separa el espacio de letras*/
+	text-align: justify;
+	padding-top: 10px;	/*espacio de tex superior*/ 
+	margin-right: 15px;/*fuera del margen derecha*/ 
+	margin-left: 10px;/*fuera del margen izquierda*/ 
+	padding-left: 10px;/*margen de letras izquierda*/ 
+	padding-right: 10px;/*margen de letras derecha */ 
+
+}
+
+.contenido1 img{ /* esta propiedad coloca la imagen separa de la letra con un espacio  */
+	width: 953px;
+	margin-left: 35px;
+	margin-top: 35px;
+}
+.contenedor-slider {
+	margin: auto; 
+	width: 1000px;
+  	max-width: 2000px; /*el ancho maximo */
+  	position: relative;/* pocion de los botones enbase al contenedor */
+  	overflow: hidden; /* esto permite mostrar una imagen por una imagen  */
+}
+
+.slider {
+    display: flex; /* se adapta a los  navegadores */
+    width: 1000px;
+}
+
+.slider__section {
+    width: 1000px;
+}
+.slider__img {
+	display: block;
+    width: 90%; /* ancho */
+    height: 90%; /*alto*/
+}
+.btn-prev, .btn-next {
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.7);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	line-height: 40px;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 50%;
+	font-family: monospace;
+}
+.btn-next:hover {
+	background: rgb(30, 9, 212);
+	scale: 1.5;
+}
+.btn-prev:hover {
+	background: rgb(255, 17, 0);
+	scale: 1.5;
+}
+.btn-prev {
+	top: 460px;
+	left: 700px;
+	color: wheat;
+	background-color: brown;
+	opacity: 0.5;
+}
+.btn-next {
+	top: 460px;
+	right: 700px;
+	color: wheat;
+	background-color: blue;
+	opacity: 0.5;
+}
+

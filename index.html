@@ -59,10 +59,6 @@
                             <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Logeo</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item text-black nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Iniciar Sesion</a></li>
-                                    <li><a class="dropdown-item text-black nav-link logged-in" href="#" id="logout">Cerrar Sesion</a></li>
-                                    <li><a class="nav-link logged-in dropdown-item text-black " href="Andres/Empleados.html" id="logout1">Registrar Empleado</a></li>
-                                    <li><a class="nav-link logged-in dropdown-item text-black " href="index.php" id="logout2">Reservas</a></li>
-                                    <li><a class="nav-link logged-in dropdown-item text-black " href="" id="logout3">Reportes</a></li>
                                 </ul>
                         </li>
                         <!-- Script JavaScript para controlar la visibilidad de Reservas y Reportes -->
@@ -79,7 +75,7 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="login-form" action="Andres/Admistrador.php" method="post">
+                    <form id="login-form" action="Andres/login.php" method="post">
                         <label for="USUARIO">Usuario</label>
                         <input type="text" name="USUARIO" class="form-control mb-3" placeholder="Usuario" required>
                         <label for="CONTRASENIA">Contraseña:</label>
