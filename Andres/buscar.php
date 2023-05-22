@@ -72,15 +72,15 @@ function conectar_MySQL($host, $user, $pass, $bd){
                         </div>
                         <div class="form-group">
                             <label for="NOMBRE">Nombres</label>
-                            <input type="text" name="NOMBRE" value="<?php echo $accidente['NOMBRE']; ?>">
+                            <input type="text" name="NOMBRE" id="NOMBRE" value="<?php echo $accidente['NOMBRE']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="APELLIDO_PAT">APELLIDO_PAT</label>
-                            <input type="text" name="APELLIDO_PAT" value="<?php echo $accidente['APELLIDO_PAT']; ?>">
+                            <input type="text" name="APELLIDO_PAT" id="APELLIDO_PAT" value="<?php echo $accidente['APELLIDO_PAT']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="APELLIDO_MAT">APELLIDO_MAT</label>
-                            <input type="text" name="APELLIDO_MAT" value="<?php echo $accidente['APELLIDO_MAT']; ?>">
+                            <input type="text" name="APELLIDO_MAT" id="APELLIDO_MAT" value="<?php echo $accidente['APELLIDO_MAT']; ?>">
                         </div>
                     </td>
                 </tr> 
@@ -88,7 +88,7 @@ function conectar_MySQL($host, $user, $pass, $bd){
                     <td colspan="2">
                         <div class="form-group">
                             <label for="F_CONTRATACION">F_CONTRATACION</label>
-                            <input type="date" name="F_CONTRATACION" style="width: 360px;" value="<?php echo $accidente['F_CONTRATACION']; ?>">
+                            <input type="date" name="F_CONTRATACION" id="F_CONTRATACION" style="width: 360px;" value="<?php echo $accidente['F_CONTRATACION']; ?>">
                         </div>
                     </td>
                 </tr>
@@ -96,7 +96,7 @@ function conectar_MySQL($host, $user, $pass, $bd){
                 <td colspan="2">
                     <div class="form-group">
                         <label for="">SEXO:</label>
-                        <select name="SEXO" style="width: 360px;">
+                        <select name="SEXO" id="SEXO" style="width: 360px;">
                             <option value="Vacio"></option>
                             <option value="Femenino" <?php if ($accidente['SEXO'] == 'Femenino') echo 'selected'; ?>>Femenino</option>
                             <option value="Masculino" <?php if ($accidente['SEXO'] == 'Masculino') echo 'selected'; ?>>Masculino</option>
@@ -108,7 +108,7 @@ function conectar_MySQL($host, $user, $pass, $bd){
                     <td colspan="2">
                         <div class="form-group">
                             <label for="ESPECIALIDAD">ESPECIALIDAD</label>
-                            <select name="ESPECIALIDAD" style="width: 360px;">
+                            <select name="ESPECIALIDAD"  id="ESPECIALIDAD"style="width: 360px;">
                                 <option value="Vacio"></option>
                                 <option value="MAQUILLADOR" <?php if ($accidente['ESPECIALIDAD'] == 'MAQUILLADOR') echo 'selected'; ?>>MAQUILLADOR</option>
                                 <option value="PEINADOR" <?php if ($accidente['ESPECIALIDAD'] == 'PEINADOR') echo 'selected'; ?>>PEINADOR</option>
@@ -120,7 +120,7 @@ function conectar_MySQL($host, $user, $pass, $bd){
                     <td colspan="2">
                         <div class="form-group">
                             <label for="TELEFONO">TELEFONO</label>
-                            <input type="number" style="width: 355px;" name="TELEFONO" value="<?php echo $accidente['TELEFONO']; ?>">
+                            <input type="number" style="width: 355px;" name="TELEFONO" id="TELEFONO" value="<?php echo $accidente['TELEFONO']; ?>">
                         </div>
                     </td>
                 </tr>
@@ -128,7 +128,7 @@ function conectar_MySQL($host, $user, $pass, $bd){
                     <td colspan="2">
                         <div class="form-group">
                             <label for="E_MAIL">E_MAIL</label>
-                            <input type="email" style="width: 355px;" name="E_MAIL" value="<?php echo $accidente['E_MAIL']; ?>">
+                            <input type="email" style="width: 355px;" name="E_MAIL" id="E_MAIL" value="<?php echo $accidente['E_MAIL']; ?>">
                         </div>
                     </td>
                 </tr>
@@ -147,45 +147,61 @@ function conectar_MySQL($host, $user, $pass, $bd){
         }
 
         if (isset($_POST['modificar'])) {
-            $ID_accidente = $_POST['ID_accidente'];
-            $F_accidente = $_POST['F_accidente'];
-            $Tipo_accidente = $_POST['Tipo_accidente'];
-            $Num_Depoliza = $_POST['Num_Depoliza'];
+            $ID_EMPLEADO = $_POST['ID_EMPLEADO'];
+            $NOMBRE = $_POST['NOMBRE'];
+            $APELLIDO_PAT = $_POST['APELLIDO_PAT'];
+            $APELLIDO_MAT = $_POST['APELLIDO_MAT'];
+            $F_CONTRATACION = $_POST['F_CONTRATACION'];
+            $SEXO = $_POST['SEXO'];
+            $ESPECIALIDAD = $_POST['ESPECIALIDAD'];
+            $TELEFONO = $_POST['TELEFONO'];
+            $E_MAIL = $_POST['E_MAIL'];
+            $FOTO = $_POST['FOTO'];
         
-            $sql = "UPDATE Accidentes SET F_accidente='$F_accidente', Tipo_accidente='$Tipo_accidente', Num_Depoliza='$Num_Depoliza' WHERE ID_accidente=$ID_accidente";
+            // Actualizar la imagen si se cargó una nueva
+            if ($_FILES['FOTO']['name']) {
+                // Obtener el nombre y la ubicación temporal del archivo subido
+                $file_name = $_FILES['FOTO']['name'];
+                $file_tmp = $_FILES['FOTO']['tmp_name'];
         
-            if (mysqli_query($conexion, $sql)) {
+                // Mover el archivo subido a una ubicación permanente
+                move_uploaded_file($file_tmp, "ruta/donde/guardar/la/imagen/$file_name");
+        
+                // Actualizar el campo de la imagen en la base de datos con el nuevo nombre de archivo
+                $sql_update_foto = "UPDATE EMPLEADO SET FOTO='$file_name' WHERE ID_EMPLEADO=$ID_EMPLEADO";
+                mysqli_query($conexion, $sql_update_foto);
+            }
+        
+            // Actualizar los demás campos en la base de datos
+            $sql_update_empleado = "UPDATE EMPLEADO SET NOMBRE='$NOMBRE', APELLIDO_PAT='$APELLIDO_PAT', APELLIDO_MAT='$APELLIDO_MAT', F_CONTRATACION='$F_CONTRATACION', SEXO='$SEXO', ESPECIALIDAD='$ESPECIALIDAD', TELEFONO='$TELEFONO', E_MAIL='$E_MAIL' WHERE ID_EMPLEADO=$ID_EMPLEADO";
+        
+            if (mysqli_query($conexion, $sql_update_empleado)) {
                 echo "Registro actualizado correctamente.";
             } else {
                 echo "Error al actualizar el registro: " . mysqli_error($conexion);
             }
         }
-
+        
         if (isset($_POST['eliminar'])) {
-            $ID_accidente = $_POST['ID_accidente'];
+            $ID_EMPLEADO = $_POST['ID_EMPLEADO'];
         
-            $sql = "DELETE FROM Accidentes WHERE ID_accidente=$ID_accidente";
+            // Eliminar la imagen asociada al empleado si existe
+            $sql_select_foto = "SELECT FOTO FROM EMPLEADO WHERE ID_EMPLEADO=$ID_EMPLEADO";
+            $result_select_foto = mysqli_query($conexion, $sql_select_foto);
+            $row_select_foto = mysqli_fetch_assoc($result_select_foto);
+            $foto = $row_select_foto['FOTO'];
+            if ($foto) {
+                // Eliminar el archivo de imagen
+                unlink("ruta/donde/guardar/la/imagen/$foto");
+            }
         
-            if (mysqli_query($conexion, $sql)) {
+            // Eliminar el registro de empleado de la base de datos
+            $sql_delete_empleado = "DELETE FROM EMPLEADO WHERE ID_EMPLEADO=$ID_EMPLEADO";
+            if (mysqli_query($conexion, $sql_delete_empleado)) {
                 echo "Registro eliminado correctamente.";
             } else {
                 echo "Error al eliminar el registro: " . mysqli_error($conexion);
             }
         }
-        if (isset($_POST['actualizar'])) {
-            $ID_accidente = $_POST['ID_accidente'];
-            $fecha = $_POST['F_accidente'];
-            $tipo = $_POST['Tipo_accidente'];
-            $num_dep = $_POST['Num_Depoliza'];
-        
-            $sql = "UPDATE Accidentes SET F_accidente='$fecha', Tipo_accidente='$tipo', Num_Depoliza='$num_dep' WHERE ID_accidente='$ID_accidente'";
-        
-            if (mysqli_query($conexion, $sql)) {
-                echo "Datos actualizados correctamente";
-            } else {
-                echo "Error al actualizar datos: " . mysqli_error($conexion);
-            }
-        }
-        
         mysqli_close($conexion);
     ?>
