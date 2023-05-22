@@ -5,211 +5,352 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de usuarios</title>
+    <link rel="stylesheet" href="css/CabeceraRegistro.css">
+    <script type="text/javascript" src="js/Mosconten.js"></script>
     <style>
-        body {
-            background-image: url(https://e1.pxfuel.com/desktop-wallpaper/508/876/desktop-wallpaper-beauty-parlour-model-beauty-parlour.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Add your CSS styles here */
+        .oculto0 {
+            display: none;
         }
-        #contenido{	
-            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
-            width: 380px;
-            height: auto;
-            margin: 0 auto;
-            justify-content: center; /* Centrar horizontalmente */
-            align-items: center; /* Centrar verticalmente */
+    
+        .contenido1 {
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+        }
+    
+        .modal-dialog {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+    
+        .modal-body {
             padding: 20px;
         }
-        .texto1 img{
-            margin-right: 10px;
-            margin-top: 10px;
-            position:relative;
-            width: 210px;
-            height: 210px;
-            float: left;
-        }
-
-        table {
-            margin: 0 auto;
-            text-align: left;
-            border-collapse: separate;
-            border-spacing:0 5px ;
-            width: 100%;
-        }
-        td{
-            padding: auto; 
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-family: "Latin Modern Roman"; font-style: italic;
-            color: white;
-        }
-        input[type=number]::-webkit-outer-spin-button,
-        input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;}
-        input{
-            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
-            color: aliceblue;
-        }
-        select{
-            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
-            color: white;
-        }
-        option{
-            color:black;
-        }
-
-
-
-        button {
-            background-color: #ccc;
-            border: 1px solid #999;
-            color: white; /* Color del texto */
+    
+        .modal-footer {
             padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 10px;
-            margin: 4px 2px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ccc;
+        }
+    
+        .container {
+            margin-top: 20px;
+        }
+    
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        .card-header {
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+    
+        .card-body {
+            padding: 20px;
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+    
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
             cursor: pointer;
-            border-radius: 10px;
-            box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
-            text-transform: uppercase;
+        }
+    
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
+    
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+    
+        .btn-success {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        .btn-success:hover {
+            background-color: #218838;
+        }
+    
+        .btn-danger {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        .btn-danger:hover {
+            background-color: #c82333;
         }
 
 
-        .form-buttons {
-            text-align: center; /* Centrar horizontalmente */
-            margin-top: 10px; /* Espacio entre el formulario y los botones */
-        }
-        h1{
-            text-align: center;
-        }
-
-        
+        .vertical-line {
+    border-right: 1px solid #dee2e6;
+}
     </style>
+    
+
 </head>
 <body>
 
-    <section id="contenido">
-        <form action="RegistroEmpleado.php" method="post" class="form-group">
-            <h1>Usuarios</h1>
-            <table>
-                <tr>
+    <nav>
+        <ul>
+            <img width="250px" height="130px" align="left" src="../img/logo.png">
+            <div class="container">
+                <div draggable="true" class="box"><button onclick="mostrarImagenes()" class="boton-letras"><li>Registrar Empleados</li></button></div>
+                <div draggable="true" class="box"><button onclick="verEmpleado()" class="boton-letras" ><li>Ver Empleados</li></button></div>
+            </div>
+        </ul>
+    </nav>  
+    <br><br>
+        <!-- PLATOS FUERTES -->
+    <div id="mi-div0" class="oculto0">
+        <section class="contenido">
+            <form action="RegistroEmpleado.php" method="post" class="form-group">
+                <h1>Usuarios</h1>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="form-group" style="text-align: center;">
+                                <canvas style="border:black 1px dashed;" id="canvas" width="150px" height="150px"></canvas><br>
+                                <input type="file" id="FOTO" name="FOTO" style="display:none;" />
+                                <button type="button" id="btnCargarImagen">Cargar Imagen</button>
+                            </div>
+                        </td>
+                        <script>
+                            //obtener elementos
+                            var inputImagen = document.getElementById("FOTO");
+                        var btnCargarImagen = document.getElementById("btnCargarImagen");
+                        var canvas = document.getElementById("canvas");
+                        var ctx = canvas.getContext("2d");
+    
+                        //agregar evento click al botón de cargar imagen
+                        btnCargarImagen.addEventListener("click", function(){
+                            //simular click en input de tipo file
+                            inputImagen.click();
+                        });
+    
+                        //agregar evento change al input de tipo file
+                        inputImagen.addEventListener("change", function(){
+                            //verificar si se seleccionó una imagen
+                            if (this.files && this.files[0]) {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    //crear nueva imagen
+                                    var img = new Image();
+                                    img.onload = function() {
+                                        //dibujar imagen en el canvas
+                                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                                    };
+                                    img.src = e.target.result;
+                                }
+                                reader.readAsDataURL(this.files[0]);
+                            }
+                        });
+    
+                    </script>
                     <td>
-                        <div class="form-group" style="text-align: center;">
-                            <canvas style="border:black 1px dashed;" id="canvas" width="150px" height="150px"></canvas><br>
-                            <input type="file" id="FOTO" name="FOTO" style="display:none;" />
-                            <button type="button" id="btnCargarImagen">Cargar Imagen</button>
+                        <div class="form-group" style="margin-top: -25px;">
+                            <label for="ID_EMPLEADO">CI</label>
+                            <input type="number" name="ID_EMPLEADO">
+                        </div>
+                        <div class="form-group">
+                            <label for="NOMBRE">Nombres</label>
+                            <input type="text" name="NOMBRE">
+                        </div>
+                        <div class="form-group">
+                            <label for="APELLIDO_PAT">APELLIDO_PAT</label>
+                            <input type="text" name="APELLIDO_PAT">
+                        </div>
+                        <div class="form-group">
+                            <label for="APELLIDO_MAT">APELLIDO_MAT</label>
+                            <input type="text" name="APELLIDO_MAT">
                         </div>
                     </td>
-                    <script>
-                        //obtener elementos
-                        var inputImagen = document.getElementById("FOTO");
-                    var btnCargarImagen = document.getElementById("btnCargarImagen");
-                    var canvas = document.getElementById("canvas");
-                    var ctx = canvas.getContext("2d");
+                </tr> 
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="F_CONTRATACION">F_CONTRATACION</label>
+                            <input type="date" name="F_CONTRATACION" style="width: 360px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="">SEXO:</label>
+                            <select name="SEXO" style="width: 360px;">
+                                <option value="Vacio"></option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="">ESPECIALIDAD</label>
+                            <select name="ESPECIALIDAD" style="width: 360px;">
+                                <option value="Vacio"></option>
+                                <option value="MAQUILLADOR">MAQUILLADOR</option>
+                                <option value="MAQUILLADOR">PEINADOR</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="TELEFONO">TELEFONO</label>
+                            <input type="number" style="width: 355px;" name="TELEFONO">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label for="E_MAIL">E_MAIL</label>
+                            <input type="email" style="width: 355px;" name="E_MAIL">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <div id="resultados"></div>
+            <a href="mostrar.php">operaciones</a>
+        </form>
+    </section>
+    </div>
 
-                    //agregar evento click al botón de cargar imagen
-                    btnCargarImagen.addEventListener("click", function(){
-                        //simular click en input de tipo file
-                        inputImagen.click();
-                    });
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>/*
+$(document).ready(function() {
+    $('form').submit(function(event) {
+        event.preventDefault(); // Evitar la recarga de la página
+        
+        // Obtener los datos del formulario
+        var formData = $(this).serialize();
+        
+        // Realizar la petición AJAX
+        $.ajax({
+            type: 'POST',
+            url: 'RegistroEmpleado.php', // Reemplaza 'nombre_de_tu_archivo.php' por el nombre de tu archivo PHP
+            data: formData,
+            success: function(response) {
+                // Manipular la respuesta del servidor
+                if (response === "error") {
+                    alert("Error: El ID_EMPLEADO ya existe en la base de datos");
+                } else {
+                    alert("Datos insertados correctamente");
+                }
+                // Restablecer el formulario, si es necesario
+                $('form')[0].reset();
+            },
+            error: function() {
+                alert('Error al enviar los datos');
+            }
+        });
+    });
+});*/
+</script>
 
-                    //agregar evento change al input de tipo file
-                    inputImagen.addEventListener("change", function(){
-                        //verificar si se seleccionó una imagen
-                        if (this.files && this.files[0]) {
-                            var reader = new FileReader();
-                            reader.onload = function (e) {
-                                //crear nueva imagen
-                                var img = new Image();
-                                img.onload = function() {
-                                    //dibujar imagen en el canvas
-                                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                                };
-                                img.src = e.target.result;
-                            }
-                            reader.readAsDataURL(this.files[0]);
-                        }
-                    });
+<script>/*
+    addEventListener('load', inicializarEventos, false);
 
-                </script>
-                <td>
-                    <div class="form-group" style="margin-top: -25px;">
-                        <label for="ID_EMPLEADO">CI</label>
-                        <input type="number" name="ID_EMPLEADO">
-                    </div>
-                    <div class="form-group">
-                        <label for="NOMBRE">Nombres</label>
-                        <input type="text" name="NOMBRE">
-                    </div>
-                    <div class="form-group">
-                        <label for="APELLIDO_PAT">APELLIDO_PAT</label>
-                        <input type="text" name="APELLIDO_PAT">
-                    </div>
-                    <div class="form-group">
-                        <label for="APELLIDO_MAT">APELLIDO_MAT</label>
-                        <input type="text" name="APELLIDO_MAT">
-                    </div>
-                </td>
-            </tr> 
-            <tr>
-                <td colspan="2">
-                    <div class="form-group">
-                        <label for="F_CONTRATACION">F_CONTRATACION</label>
-                        <input type="date" name="F_CONTRATACION" style="width: 360px;">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="form-group">
-                        <label for="">SEXO:</label>
-                        <select name="SEXO" style="width: 360px;">
-                            <option value="Vacio"></option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Masculino">Masculino</option>
-                        </select>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="form-group">
-                        <label for="">ESPECIALIDAD</label>
-                        <select name="ESPECIALIDAD" style="width: 360px;">
-                            <option value="Vacio"></option>
-                            <option value="MAQUILLADOR">MAQUILLADOR</option>
-                            <option value="MAQUILLADOR">PEINADOR</option>
-                        </select>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="form-group">
-                        <label for="TELEFONO">TELEFONO</label>
-                        <input type="number" style="width: 355px;" name="TELEFONO">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="form-group">
-                        <label for="E_MAIL">E_MAIL</label>
-                        <input type="email" style="width: 355px;" name="E_MAIL">
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <button type="submit" class="btn btn-success">Guardar</button>
-    </form>
-</section>
+    function inicializarEventos() {
+        var ref = document.getElementById('formulario');
+        ref.addEventListener('submit', enviarDatos, false);
+    }
+
+    function enviarDatos(e) {
+        e.preventDefault();
+        enviarFormulario();
+    }
+
+    function retornarDatos() {
+        var cad = '';
+        var nom = document.getElementsByName('ID_EMPLEADO')[0].value;
+        var ape = document.getElementsByName('NOMBRE')[0].value;
+        var ci = document.getElementsByName('APELLIDO_PAT')[0].value;
+        var e = document.getElementsByName('APELLIDO_MAT')[0].value;
+        var f = document.getElementsByName('F_CONTRATACION')[0].value;
+        var h = document.getElementsByName('SEXO')[0].value;
+        var m = document.getElementsByName('ESPECIALIDAD')[0].value;
+        var d = document.getElementsByName('TELEFONO')[0].value;
+        var c = document.getElementsByName('E_MAIL')[0].value;
+        var cantidad = document.getElementsByName('FOTO')[0].value;
+
+        cad =
+            '&ID_EMPLEADO=' + encodeURIComponent(nom) +
+            '&NOMBRE=' + encodeURIComponent(ape) +
+            '&APELLIDO_PAT=' + encodeURIComponent(ci) +
+            '&APELLIDO_MAT=' + encodeURIComponent(e) +
+            '&F_CONTRATACION=' + encodeURIComponent(f) +
+            '&SEXO=' + encodeURIComponent(h) +
+            '&ESPECIALIDAD=' + encodeURIComponent(m) +
+            '&TELEFONO=' + encodeURIComponent(d) +
+            '&E_MAIL=' + encodeURIComponent(c) +
+            '&FOTO=' + encodeURIComponent(cantidad);
+        return cad;
+    }
+
+    var conexion1;
+
+    function enviarFormulario() {
+        conexion1 = new XMLHttpRequest();
+        conexion1.onreadystatechange = procesarEventos;
+        conexion1.open('POST', 'RegistroEmpleado.php', true);
+        conexion1.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+        conexion1.send(retornarDatos());
+    }
+
+    function procesarEventos() {
+        var resultados = document.getElementById("resultados");
+        if (conexion1.readyState == 4) {
+            if (conexion1.status == 200)
+                resultados.innerHTML = 'Gracias.';
+            else
+                alert(conexion1.statusText);
+        } else {
+            resultados.innerHTML = 'cargando...';
+        }
+    }*/
+</script>
 </body>
-
 </html>
