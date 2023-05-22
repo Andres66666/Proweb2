@@ -12,26 +12,6 @@ function conectar_MySQL($host, $user, $pass, $bd){
     return $conexion;
 }
 
-function insertarAccidente($conexion, $id, $evento, $color_evento, $fecha_inicio,$fecha_fin){
-  $sql = "INSERT INTO eventoscalendar VALUES (".$id.",'".$evento."','".$color_evento."','".$fecha_inicio."','".$fecha_fin."')";
-  return mysqli_query($conexion, $sql);
-}
-
-$id = $_POST['id'];
-$evento = $_POST['evento'];
-$color_evento = $_POST['color_evento'];
-$fecha_inicio = $_POST['fecha_inicio'];
-$fecha_fin = $_POST['fecha_fin'];
-
-
-$ok = insertarAccidente($conexion, $id, $evento, $color_evento, $fecha_inicio,$fecha_fin);
-
-if ($ok == false){
-  echo "Error al insertar datos<br/>";
-}else{
-  echo "Datos insertados correctamente<br/>";
-}
-/*
 $evento            = ucwords($_REQUEST['evento']);
 $f_inicio          = $_REQUEST['fecha_inicio'];
 $fecha_inicio      = date('Y-m-d', strtotime($f_inicio)); 
@@ -57,7 +37,7 @@ $InsertNuevoEvento = "INSERT INTO eventoscalendar(
   )";
 $resultadoNuevoEvento = mysqli_query($con, $InsertNuevoEvento);
 
-header("Location:index.php?e=1");*/
+header("Location:index.php?e=1");
 
 
 mysqli_close($conexion);
