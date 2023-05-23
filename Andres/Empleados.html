@@ -7,214 +7,110 @@
     <title>Gestion de usuarios</title>
     <link rel="stylesheet" href="css/CabeceraRegistro.css">
     <script type="text/javascript" src="js/Mosconten.js"></script>
-    <style>
-        /* Add your CSS styles here */
-        .oculto0 {
-            display: none;
-        }
-    
-        .contenido1 {
-            margin: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border: 1px solid #ccc;
-        }
-    
-        .modal-dialog {
-            max-width: 600px;
-            margin: 30px auto;
-        }
-    
-        .modal-body {
-            padding: 20px;
-        }
-    
-        .modal-footer {
-            padding: 10px 20px;
-            background-color: #f4f4f4;
-            border-top: 1px solid #ccc;
-        }
-    
-        .container {
-            margin-top: 20px;
-        }
-    
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-    
-        .card-header {
-            background-color: #f4f4f4;
-            padding: 10px 20px;
-            border-bottom: 1px solid #ccc;
-        }
-    
-        .card-body {
-            padding: 20px;
-        }
-    
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-    
-        th, td {
-            padding: 8px;
-            border-bottom: 1px solid #ccc;
-        }
-    
-        .btn-primary {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    
-        .btn-primary:hover {
-            background-color: #0069d9;
-        }
-    
-        .btn-secondary {
-            background-color: #6c757d;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    
-        .btn-secondary:hover {
-            background-color: #5a6268;
-        }
-    
-        .btn-success {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    
-        .btn-success:hover {
-            background-color: #218838;
-        }
-    
-        .btn-danger {
-            background-color: #dc3545;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    
-        .btn-danger:hover {
-            background-color: #c82333;
-        }
 
-
-        .vertical-line {
-    border-right: 1px solid #dee2e6;
-}
-    </style>
-    
-
-</head>
+</head>   <script src="js/Jqueryformulario.js"></script>
 <body>
-
     <nav>
         <ul>
-            <img width="250px" height="130px" align="left" src="../img/logo.png">
-            <div class="container">
-                <div draggable="true" class="box"><button onclick="mostrarImagenes()" class="boton-letras"><li>Registrar Empleados</li></button></div>
-                <div draggable="true" class="box"><button onclick="verEmpleado()" class="boton-letras" ><li>Ver Empleados</li></button></div>
-            </div>
+            <img width="250px" height="250px" align="left" src="../img/logo.png">
+            <button type="button" class="btn btn-success" style="width: 150px; height: 60px; background-color: rgb(134, 134, 168);"><a href="mostrar.php">Registro</a></button>
         </ul>
     </nav>  
     <br><br>
         <!-- PLATOS FUERTES -->
-    <div id="mi-div0" class="oculto0">
         <section class="contenido">
-            <form action="RegistroEmpleado.php" method="post" class="form-group">
+            <form action="RegistroEmpleado.php" method="post" class="form-group"  onsubmit="return validateForm()">
                 <h1>Usuarios</h1>
                 <table>
                     <tr>
                         <td>
                             <div class="form-group" style="text-align: center;">
                                 <canvas style="border:black 1px dashed;" id="canvas" width="150px" height="150px"></canvas><br>
-                                <input type="file" id="FOTO" name="FOTO" style="display:none;" />
-                                <button type="button" id="btnCargarImagen">Cargar Imagen</button>
+                                <input type="file" id="fotoAlum" name="FOTO"  style="display: none;" title="Foto png o jpg" accept=".jpg, .jpeg, .png" multiple tabindex="4"/>
+                                <button type="button" id="btnCargarImagen">Cargar Imagen📷.</button>
                             </div>
                         </td>
-                        <script>
-                            //obtener elementos
-                            var inputImagen = document.getElementById("FOTO");
-                        var btnCargarImagen = document.getElementById("btnCargarImagen");
-                        var canvas = document.getElementById("canvas");
-                        var ctx = canvas.getContext("2d");
-    
-                        //agregar evento click al botón de cargar imagen
-                        btnCargarImagen.addEventListener("click", function(){
-                            //simular click en input de tipo file
-                            inputImagen.click();
-                        });
-    
-                        //agregar evento change al input de tipo file
-                        inputImagen.addEventListener("change", function(){
-                            //verificar si se seleccionó una imagen
-                            if (this.files && this.files[0]) {
-                                var reader = new FileReader();
-                                reader.onload = function (e) {
-                                    //crear nueva imagen
-                                    var img = new Image();
-                                    img.onload = function() {
-                                        //dibujar imagen en el canvas
-                                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                                    };
-                                    img.src = e.target.result;
+                        <script type="text/javascript">
+                            const input = document.getElementById('fotoAlum'); // Arreglo de componentes de la imagen
+                            const canvas = document.getElementById('canvas'); // Contenedor del canvas
+                            const context = canvas.getContext('2d'); // Contexto 2D del canvas
+                            const btnCargarImagen = document.getElementById('btnCargarImagen'); // Botón de carga de imagen
+                        
+                            // Evento de cambio de imagen
+                            input.addEventListener('change', updateImageDisplay);
+                            function updateImageDisplay() {
+                                const curFiles = input.files;
+                                if (curFiles.length === 0) {
+                                    context.clearRect(0, 0, canvas.width, canvas.height);
+                                } else {
+                                    const file = curFiles[0];
+                                    // Validación de archivo
+                                    if (validFileType(file)) {
+                                        const image = new Image();
+                                        image.onload = function() {
+                                            context.clearRect(0, 0, canvas.width, canvas.height);
+                                            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+                                        };
+                                        image.src = URL.createObjectURL(file);
+                                    }
                                 }
-                                reader.readAsDataURL(this.files[0]);
                             }
-                        });
-    
-                    </script>
+                        
+                            // Arreglo de formatos permitidos
+                            const fileTypes = [
+                                "image/apng",
+                                "image/bmp",
+                                "image/gif",
+                                "image/jpeg",
+                                "image/pjpeg",
+                                "image/png",
+                                "image/svg+xml",
+                                "image/tiff",
+                                "image/webp",
+                                "image/x-icon"
+                            ];
+                        
+                            function validFileType(file) {
+                                return fileTypes.includes(file.type);
+                            }
+                        
+                            // Evento de clic en el botón de carga de imagen
+                            btnCargarImagen.addEventListener('click', function() {
+                                input.click();
+                            });
+                        </script>
                     <td>
                         <div class="form-group" style="margin-top: -25px;">
-                            <label for="ID_EMPLEADO">CI</label>
-                            <input type="number" name="ID_EMPLEADO">
+                            <label for="ID_EMPLEADO">CI <span id="error_ID_EMPLEADO"></span> </label>
+                            <input type="number" name="ID_EMPLEADO" id="ID_EMPLEADO">
                         </div>
                         <div class="form-group">
-                            <label for="NOMBRE">Nombres</label>
-                            <input type="text" name="NOMBRE">
+                            <label for="NOMBRE">NOMBRES <span id="error_NOMBRE"></span></label>
+                            <input type="text" name="NOMBRE" id="NOMBRE">
                         </div>
                         <div class="form-group">
-                            <label for="APELLIDO_PAT">APELLIDO_PAT</label>
-                            <input type="text" name="APELLIDO_PAT">
+                            <label for="APELLIDO_PAT">APELLIDO PATERNO <span id="error_APELLIDO_PAT"></span></label>
+                            <input type="text" name="APELLIDO_PAT" id="APELLIDO_PAT">
                         </div>
                         <div class="form-group">
-                            <label for="APELLIDO_MAT">APELLIDO_MAT</label>
-                            <input type="text" name="APELLIDO_MAT">
+                            <label for="APELLIDO_MAT">APELLIDO MATATERNO <span id="error_APELLIDO_MAT"></span></label>
+                            <input type="text" name="APELLIDO_MAT" id="APELLIDO_MAT">
                         </div>
                     </td>
                 </tr> 
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="F_CONTRATACION">F_CONTRATACION</label>
-                            <input type="date" name="F_CONTRATACION" style="width: 360px;">
+                            <label for="F_CONTRATACION">FECHA CONTRATACION <span id="error_F_CONTRATACION"></span></label>
+                            <input type="date" name="F_CONTRATACION" name="F_CONTRATACION" style="width: 360px;">
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="">SEXO:</label>
-                            <select name="SEXO" style="width: 360px;">
+                            <label for="">SEXO: <span id="error_SEXO"></span></label>
+                            <select name="SEXO" id="SEXO"style="width: 360px;">
                                 <option value="Vacio"></option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
@@ -225,8 +121,8 @@
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="">ESPECIALIDAD</label>
-                            <select name="ESPECIALIDAD" style="width: 360px;">
+                            <label for="">ESPECIALIDAD <span id="error_ESPECIALIDAD"></span></label>
+                            <select name="ESPECIALIDAD" id="ESPECIALIDAD" style="width: 360px;">
                                 <option value="Vacio"></option>
                                 <option value="MAQUILLADOR">MAQUILLADOR</option>
                                 <option value="MAQUILLADOR">PEINADOR</option>
@@ -237,120 +133,72 @@
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="TELEFONO">TELEFONO</label>
-                            <input type="number" style="width: 355px;" name="TELEFONO">
+                            <label for="TELEFONO">TELEFONO <span id="error_TELEFONO"></span></label>
+                            <input type="number" style="width: 355px;" name="TELEFONO" id="TELEFONO" pattern="[67][0-9]{7}">
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="E_MAIL">E_MAIL</label>
-                            <input type="email" style="width: 355px;" name="E_MAIL">
+                            <label for="E_MAIL">E-MAIL <span id="error_E_MAIL"></span></label>
+                            <input type="email" style="width: 355px;" name="E_MAIL" id="E_MAIL">
                         </div>
                     </td>
                 </tr>
             </table>
-            <button type="submit" class="btn btn-success">Guardar</button>
-            <div id="resultados"></div>
-            <a href="mostrar.php">operaciones</a>
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-success" value="Guardar💾" >Guardar💾</button>
+                <input type="submit" value="Enviar" id="enviar">
+            </div>
         </form>
+       
     </section>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>/*
-$(document).ready(function() {
-    $('form').submit(function(event) {
-        event.preventDefault(); // Evitar la recarga de la página
-        
-        // Obtener los datos del formulario
-        var formData = $(this).serialize();
-        
-        // Realizar la petición AJAX
-        $.ajax({
-            type: 'POST',
-            url: 'RegistroEmpleado.php', // Reemplaza 'nombre_de_tu_archivo.php' por el nombre de tu archivo PHP
-            data: formData,
-            success: function(response) {
-                // Manipular la respuesta del servidor
-                if (response === "error") {
-                    alert("Error: El ID_EMPLEADO ya existe en la base de datos");
-                } else {
-                    alert("Datos insertados correctamente");
-                }
-                // Restablecer el formulario, si es necesario
-                $('form')[0].reset();
-            },
-            error: function() {
-                alert('Error al enviar los datos');
+    <script>
+        function validateForm() {
+            // Obtén el valor del campo ID_EMPLEADO
+            var idEmpleado = document.getElementById('ID_EMPLEADO').value;
+
+            var NOMBRE=document.querySelector('#NOMBRE').value;  
+            var APELLIDO_PAT=document.querySelector('#APELLIDO_PAT').value;  
+            var APELLIDO_MAT=parseInt(document.querySelector('#APELLIDO_MAT').value); 
+
+            /* mensaje de alertas*/
+    
+            var error_ID_EMPLEADO = document.querySelector('#error_ID_EMPLEADO');
+
+            var error_NOMBRE=document.querySelector('#error_NOMBRE');
+            var error_APELLIDO_PAT=document.querySelector('#error_APELLIDO_PAT');
+            var error_APELLIDO_MAT=document.querySelector('#error_APELLIDO_MAT');    
+
+            // Verifica si el campo ID_EMPLEADO está vacío
+            if (idEmpleado.trim() === "") {
+                alert("El ID no es válido");
+                error_ID_EMPLEADO.innerHTML = "<span id='error_ID_EMPLEADO'> Error⚠</span>";
+                error_ID_EMPLEADO.style.color = "red";
+                return false;
+            } else {
+                error_ID_EMPLEADO.innerHTML = "<span id='error_ID_EMPLEADO'></span>";
             }
-        });
-    });
-});*/
-</script>
 
-<script>/*
-    addEventListener('load', inicializarEventos, false);
-
-    function inicializarEventos() {
-        var ref = document.getElementById('formulario');
-        ref.addEventListener('submit', enviarDatos, false);
-    }
-
-    function enviarDatos(e) {
-        e.preventDefault();
-        enviarFormulario();
-    }
-
-    function retornarDatos() {
-        var cad = '';
-        var nom = document.getElementsByName('ID_EMPLEADO')[0].value;
-        var ape = document.getElementsByName('NOMBRE')[0].value;
-        var ci = document.getElementsByName('APELLIDO_PAT')[0].value;
-        var e = document.getElementsByName('APELLIDO_MAT')[0].value;
-        var f = document.getElementsByName('F_CONTRATACION')[0].value;
-        var h = document.getElementsByName('SEXO')[0].value;
-        var m = document.getElementsByName('ESPECIALIDAD')[0].value;
-        var d = document.getElementsByName('TELEFONO')[0].value;
-        var c = document.getElementsByName('E_MAIL')[0].value;
-        var cantidad = document.getElementsByName('FOTO')[0].value;
-
-        cad =
-            '&ID_EMPLEADO=' + encodeURIComponent(nom) +
-            '&NOMBRE=' + encodeURIComponent(ape) +
-            '&APELLIDO_PAT=' + encodeURIComponent(ci) +
-            '&APELLIDO_MAT=' + encodeURIComponent(e) +
-            '&F_CONTRATACION=' + encodeURIComponent(f) +
-            '&SEXO=' + encodeURIComponent(h) +
-            '&ESPECIALIDAD=' + encodeURIComponent(m) +
-            '&TELEFONO=' + encodeURIComponent(d) +
-            '&E_MAIL=' + encodeURIComponent(c) +
-            '&FOTO=' + encodeURIComponent(cantidad);
-        return cad;
-    }
-
-    var conexion1;
-
-    function enviarFormulario() {
-        conexion1 = new XMLHttpRequest();
-        conexion1.onreadystatechange = procesarEventos;
-        conexion1.open('POST', 'RegistroEmpleado.php', true);
-        conexion1.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-        conexion1.send(retornarDatos());
-    }
-
-    function procesarEventos() {
-        var resultados = document.getElementById("resultados");
-        if (conexion1.readyState == 4) {
-            if (conexion1.status == 200)
-                resultados.innerHTML = 'Gracias.';
-            else
-                alert(conexion1.statusText);
-        } else {
-            resultados.innerHTML = 'cargando...';
+            if (NOMBRE.trim() === "") {  
+                alert("Los nombres no son válidos");  
+                error_NOMBRE.innerHTML = "<span id='error_NOMBRE'> Error⚠</span>";  
+                error_NOMBRE.style.color = "red";  
+                return false;  
+            } else {  
+                    error_NOMBRE.innerHTML = "<span id='error_NOMBRE'></span>";  
+            }
+            if (APELLIDO_PAT.trim() === "") {  
+                alert("Los apellido paterno no válido");  
+                        error_APELLIDO_PAT.innerHTML="<span id='error_APELLIDO_PAT'> Error⚠</span>";  
+                        error_APELLIDO_PAT.style.color="red";  
+                            return false;  
+            } else {  
+                error_APELLIDO_PAT.innerHTML = "<span id='APELLIDO_PAT'></span>";  
+            }
         }
-    }*/
-</script>
+    </script>
 </body>
 </html>

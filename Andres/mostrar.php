@@ -63,18 +63,57 @@
             padding: 8px;
             border-bottom: 1px solid #ccc;
         }
-
-
         .vertical-line {
-    border-right: 1px solid #dee2e6;
-}
+            border-right: 1px solid #dee2e6;
+        }
     </style>
+    <style>
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
+		input[type="text"] {
+			padding: 5px;
+			border-radius: 3px;
+			border: 1px solid #ccc;
+			margin-bottom: 10px;
+			width: 250px;
+		}
+        a{
+            text-decoration: none;
+        }
+
+        .form-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-link {
+    color: #fff;
+  text-decoration: none;
+}
+
+.form-link:hover {
+  text-decoration: underline;
+}
+	</style>
+    
 </head>
 <body>
     <?php
 ini_set("display_errors", "on");
 $conexion = conectar_MySQL("sql308.byethost14.com", "b14_33887233", "13247291", "b14_33887233_Salon");
-
 function conectar_MySQL($host, $user, $pass, $bd)
 {
     $conexion = mysqli_connect($host, $user, $pass, $bd) or die("Error al conectar: " . mysqli_connect_error());
@@ -88,25 +127,28 @@ function mostrarEmpleados($conexion)
     $resultado = mysqli_query($conexion, $sql);
 
     if (mysqli_num_rows($resultado) > 0) {
+        echo '<div style="margin-top: 70px;">';
         echo '<table id="myTable" class="table table-bordered table-striped">';
         echo '<thead>';
         echo '<tr>';
+        echo '<th style="border-top: 1px solid #ccc;"></th>';
         echo '<th class="vertical-line">ID</th>';
-        echo '<th class="vertical-line">NOMBRE</th>';
-        echo '<th class="vertical-line">APELLIDO_PAT</th>';
-        echo '<th class="vertical-line">APELLIDO_MAT</th>';
-        echo '<th class="vertical-line">FECHA_CONTRATACION</th>';
-        echo '<th class="vertical-line">SEXO</th>';
-        echo '<th class="vertical-line">ESPECIALIDAD</th>';
-        echo '<th class="vertical-line">TELEFONO</th>';
-        echo '<th class="vertical-line">E_MAIL</th>';
-        echo '<th class="vertical-line">FOTO</th>';
+        echo '<th class="vertical-line">Nonbre</th>';
+        echo '<th class="vertical-line">Apellido Paterno</th>';
+        echo '<th class="vertical-line">Apellido Materno</th>';
+        echo '<th class="vertical-line">Fecha Contratacion</th>';
+        echo '<th class="vertical-line">Sexo</th>';
+        echo '<th class="vertical-line">Especialidad</th>';
+        echo '<th class="vertical-line">Telefono</th>';
+        echo '<th class="vertical-line">Correo</th>';
+        echo '<th class="vertical-line">Foto</th>';
         echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
 
         while ($row = mysqli_fetch_assoc($resultado)) {
             echo '<tr>';
+            echo '<td style="border-left: 1px solid #ccc;"></td>';
             echo '<td class="vertical-line">' . $row['ID_EMPLEADO'] . '</td>';
             echo '<td class="vertical-line">' . $row['NOMBRE'] . '</td>';
             echo '<td class="vertical-line">' . $row['APELLIDO_PAT'] . '</td>';
@@ -116,77 +158,32 @@ function mostrarEmpleados($conexion)
             echo '<td class="vertical-line">' . $row['ESPECIALIDAD'] . '</td>';
             echo '<td class="vertical-line">' . $row['TELEFONO'] . '</td>';
             echo '<td class="vertical-line">' . $row['E_MAIL'] . '</td>';
+            //echo '<td class="vertical-line"><img src="ruta/donde/guardar/la/imagen/' . $row['FOTO'] . '" width="100" height="100" alt="Foto del empleado"></td>';
             echo '<td class="vertical-line">' . $row['FOTO'] . '</td>';
             echo '</tr>';
         }
 
         echo '</tbody>';
         echo '</table>';
+        echo '</div>';
     } else {
         echo 'No se encontraron empleados registrados.';
     }
 
     mysqli_free_result($resultado);
 }
-
 // Llamar a la función para mostrar los empleados
 mostrarEmpleados($conexion);
 
 mysqli_close($conexion);
 ?>
-<div id="mi-div1" class="oculto0">
-        <section class="contenido1">
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <table id="myTable" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th class="vertical-line">ID_EMPLEADO</th>
-                                            <th class="vertical-line">NOMBRE</th>
-                                            <th class="vertical-line">APELLIDO_PAT</th>
-                                            <th class="vertical-line">APELLIDO_MAT</th>
-                                            <th class="vertical-line">F_CONTRATACION</th>
-                                            <th class="vertical-line">SEXO</th>
-                                            <th class="vertical-line">ESPECIALIDAD</th>
-                                            <th class="vertical-line">TELEFONO</th>
-                                            <th class="vertical-line">E_MAIL</th>
-                                            <th class="vertical-line">FOTO</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($products as $product) : ?>
-                                            <tr>
-                                                <td class="vertical-line"><?= $product['ID_EMPLEADO'] ?></td>
-                                                <td class="vertical-line"><?= $product['NOMBRE'] ?></td>
-                                                <td class="vertical-line"><?= $product['APELLIDO_PAT'] ?></td>
-                                                <td class="vertical-line"><?= $product['APELLIDO_MAT'] ?></td>
-                                                <td class="vertical-line"><?= $product['F_CONTRATACION'] ?></td>
-                                                <td class="vertical-line"><?= $product['SEXO'] ?></td>
-                                                <td class="vertical-line"><?= $product['ESPECIALIDAD'] ?></td>
-                                                <td class="vertical-line"><?= $product['TELEFONO'] ?></td>
-                                                <td class="vertical-line"><?= $product['E_MAIL'] ?></td>
-                                                <td class="vertical-line"><?= $product['FOTO'] ?></td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
     <div class="row">
     <div class="column">
         <form method="POST" action="buscar.php">
-            <label for="ID_EMPLEADO">ID_EMPLEADO:</label>
+            <label for="ID_EMPLEADO">Buca Al Empleado Por Su ID:</label><br>
             <input type="text" name="ID_EMPLEADO" id="ID_EMPLEADO">
-            <button type="submit" name="buscar">Buscar</button> 
+            <button type="submit" name="buscar" class="form-button">Buscar</button> <br><br>
+            <button type="button" class="form-button"><a href="Empleados.html" class="form-link">Regresar 🚪</a></button>
         </form>
     </div>
 </div> 

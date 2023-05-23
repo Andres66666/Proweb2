@@ -137,7 +137,6 @@ option{
 }
 
 
-
 button {
   background-color: #66ca5d;
   border: 1px solid #999;
@@ -167,16 +166,4 @@ a{
   color: aliceblue;
 }
 
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        tr:hover {
-
-        }
+      

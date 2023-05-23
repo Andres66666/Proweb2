@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="style.css">
-<?php
+<link rel="stylesheet" href="css/CabeceraRegistro.css">
 
+<?php
     ini_set("display_errors","on");
 $conexion = conectar_MySQL("sql308.byethost14.com","b14_33887233","13247291","b14_33887233_Salon");
 
@@ -22,64 +22,84 @@ function conectar_MySQL($host, $user, $pass, $bd){
             if (mysqli_num_rows($resultado) > 0) {
             $accidente = mysqli_fetch_assoc($resultado);
             ?>
-            <form method="POST" action="buscar.php">
-                
+            <section class="contenido">
+            <form method="POST" action="buscar.php" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <td>
                             <div class="form-group" style="text-align: center;">
                                 <canvas style="border:black 1px dashed;" id="canvas" width="150px" height="150px"></canvas><br>
-                                <input type="file" id="FOTO" name="FOTO" style="display:none;" value="<?php echo $accidente['FOTO']; ?>">
-                                <button type="button" id="btnCargarImagen">Cargar Imagen</button>
+                                <input type="file" id="fotoAlum" name="FOTO"  style="display: none;" title="Foto png o jpg" accept=".jpg, .jpeg, .png" multiple tabindex="4" value="<?php echo $accidente['FOTO']; ?>"/>
+                                <button type="button" id="btnCargarImagen">Cargar Imagen📷</button>
                             </div>
                         </td>
-                        <script>
-                            //obtener elementos
-                            var inputImagen = document.getElementById("FOTO");
-                        var btnCargarImagen = document.getElementById("btnCargarImagen");
-                        var canvas = document.getElementById("canvas");
-                        var ctx = canvas.getContext("2d");
-    
-                        //agregar evento click al botón de cargar imagen
-                        btnCargarImagen.addEventListener("click", function(){
-                            //simular click en input de tipo file
-                            inputImagen.click();
-                        });
-    
-                        //agregar evento change al input de tipo file
-                        inputImagen.addEventListener("change", function(){
-                            //verificar si se seleccionó una imagen
-                            if (this.files && this.files[0]) {
-                                var reader = new FileReader();
-                                reader.onload = function (e) {
-                                    //crear nueva imagen
-                                    var img = new Image();
-                                    img.onload = function() {
-                                        //dibujar imagen en el canvas
-                                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                                    };
-                                    img.src = e.target.result;
+                        
+                        <script type="text/javascript">
+                            const input = document.getElementById('fotoAlum'); // Arreglo de componentes de la imagen
+                            const canvas = document.getElementById('canvas'); // Contenedor del canvas
+                            const context = canvas.getContext('2d'); // Contexto 2D del canvas
+                            const btnCargarImagen = document.getElementById('btnCargarImagen'); // Botón de carga de imagen
+                        
+                            // Evento de cambio de imagen
+                            input.addEventListener('change', updateImageDisplay);
+                            function updateImageDisplay() {
+                                const curFiles = input.files;
+                                if (curFiles.length === 0) {
+                                    context.clearRect(0, 0, canvas.width, canvas.height);
+                                } else {
+                                    const file = curFiles[0];
+                                    // Validación de archivo
+                                    if (validFileType(file)) {
+                                        const image = new Image();
+                                        image.onload = function() {
+                                            context.clearRect(0, 0, canvas.width, canvas.height);
+                                            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+                                        };
+                                        image.src = URL.createObjectURL(file);
+                                    }
                                 }
-                                reader.readAsDataURL(this.files[0]);
                             }
-                        });
-    
-                    </script>
+                        
+                            // Arreglo de formatos permitidos
+                            const fileTypes = [
+                                "image/apng",
+                                "image/bmp",
+                                "image/gif",
+                                "image/jpeg",
+                                "image/pjpeg",
+                                "image/png",
+                                "image/svg+xml",
+                                "image/tiff",
+                                "image/webp",
+                                "image/x-icon"
+                            ];
+                        
+                            function validFileType(file) {
+                                return fileTypes.includes(file.type);
+                            }
+                        
+                            // Evento de clic en el botón de carga de imagen
+                            btnCargarImagen.addEventListener('click', function() {
+                                input.click();
+                            });
+                        </script>
+                        
+                        
                     <td>
                         <div class="form-group" style="margin-top: -25px;">
                             <label for="ID_EMPLEADO">CI</label>
                             <input type="number" name="ID_EMPLEADO" value="<?php echo $accidente['ID_EMPLEADO']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="NOMBRE">Nombres</label>
+                            <label for="NOMBRE">NOMBRE</label>
                             <input type="text" name="NOMBRE" id="NOMBRE" value="<?php echo $accidente['NOMBRE']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="APELLIDO_PAT">APELLIDO_PAT</label>
+                            <label for="APELLIDO_PAT">APELLIDO PATATERNO</label>
                             <input type="text" name="APELLIDO_PAT" id="APELLIDO_PAT" value="<?php echo $accidente['APELLIDO_PAT']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="APELLIDO_MAT">APELLIDO_MAT</label>
+                            <label for="APELLIDO_MAT">APELLIDO MATERNO</label>
                             <input type="text" name="APELLIDO_MAT" id="APELLIDO_MAT" value="<?php echo $accidente['APELLIDO_MAT']; ?>">
                         </div>
                     </td>
@@ -87,7 +107,7 @@ function conectar_MySQL($host, $user, $pass, $bd){
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="F_CONTRATACION">F_CONTRATACION</label>
+                            <label for="F_CONTRATACION">FECHA CONTRATACION</label>
                             <input type="date" name="F_CONTRATACION" id="F_CONTRATACION" style="width: 360px;" value="<?php echo $accidente['F_CONTRATACION']; ?>">
                         </div>
                     </td>
@@ -127,7 +147,7 @@ function conectar_MySQL($host, $user, $pass, $bd){
                 <tr>
                     <td colspan="2">
                         <div class="form-group">
-                            <label for="E_MAIL">E_MAIL</label>
+                            <label for="E_MAIL">E-MAIL</label>
                             <input type="email" style="width: 355px;" name="E_MAIL" id="E_MAIL" value="<?php echo $accidente['E_MAIL']; ?>">
                         </div>
                     </td>
@@ -135,14 +155,16 @@ function conectar_MySQL($host, $user, $pass, $bd){
             </table>
                 <div class="container column">
                     <button class="modify-button"  type="submit" name="modificar">Modificar</button>
-                    <button class="update-button" type="submit" name="actualizar">Actualizar</button>
                     <button class="delete-button"  type="submit" name="eliminar" >Eliminar</button>
+                    <button type="button" name="eliminar" ><a href="mostrar.php">Regresar</a> </button>
                 </div>       
             </form>
+            </section>
             <?php
           } else {
             // Si no se encontró el accidente, mostrar un mensaje de error
             echo "No se encontró el ID_EMPLEADO $ID_EMPLEADO";
+            header("Location:buscar.php");
           }
         }
 
@@ -161,11 +183,13 @@ function conectar_MySQL($host, $user, $pass, $bd){
             // Actualizar la imagen si se cargó una nueva
             if ($_FILES['FOTO']['name']) {
                 // Obtener el nombre y la ubicación temporal del archivo subido
+ 
                 $file_name = $_FILES['FOTO']['name'];
                 $file_tmp = $_FILES['FOTO']['tmp_name'];
         
                 // Mover el archivo subido a una ubicación permanente
                 move_uploaded_file($file_tmp, "ruta/donde/guardar/la/imagen/$file_name");
+                
         
                 // Actualizar el campo de la imagen en la base de datos con el nuevo nombre de archivo
                 $sql_update_foto = "UPDATE EMPLEADO SET FOTO='$file_name' WHERE ID_EMPLEADO=$ID_EMPLEADO";
@@ -173,12 +197,16 @@ function conectar_MySQL($host, $user, $pass, $bd){
             }
         
             // Actualizar los demás campos en la base de datos
+            $sql_update_foto = "UPDATE EMPLEADO SET FOTO='$file_name' WHERE ID_EMPLEADO=$ID_EMPLEADO";
+
             $sql_update_empleado = "UPDATE EMPLEADO SET NOMBRE='$NOMBRE', APELLIDO_PAT='$APELLIDO_PAT', APELLIDO_MAT='$APELLIDO_MAT', F_CONTRATACION='$F_CONTRATACION', SEXO='$SEXO', ESPECIALIDAD='$ESPECIALIDAD', TELEFONO='$TELEFONO', E_MAIL='$E_MAIL' WHERE ID_EMPLEADO=$ID_EMPLEADO";
         
             if (mysqli_query($conexion, $sql_update_empleado)) {
                 echo "Registro actualizado correctamente.";
+                header("Location:mostrar.php");
             } else {
                 echo "Error al actualizar el registro: " . mysqli_error($conexion);
+                header("Location:buscar.php");
             }
         }
         
@@ -199,8 +227,10 @@ function conectar_MySQL($host, $user, $pass, $bd){
             $sql_delete_empleado = "DELETE FROM EMPLEADO WHERE ID_EMPLEADO=$ID_EMPLEADO";
             if (mysqli_query($conexion, $sql_delete_empleado)) {
                 echo "Registro eliminado correctamente.";
+                header("Location:mostrar.php");
             } else {
                 echo "Error al eliminar el registro: " . mysqli_error($conexion);
+                header("Location:buscar.php");
             }
         }
         mysqli_close($conexion);

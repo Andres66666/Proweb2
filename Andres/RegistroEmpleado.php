@@ -40,11 +40,12 @@ if (mysqli_num_rows($resultado) > 0) {
     $ok = Empleado($conexion, $ID_EMPLEADO, $NOMBRE, $APELLIDO_PAT, $APELLIDO_MAT, $F_CONTRATACION, $SEXO, $ESPECIALIDAD, $TELEFONO, $E_MAIL, $FOTO, $ID_ADMINISTRADOR);
 
     if ($ok == false){
-        header("Location:Empleados.html");
         echo '<script>alert("Error al insertar los datos");</script>';
-    } else {
-        header("Location:mostrar.php");
+        header("Location:Empleados.html");
+        
+    } else { 
         echo '<script>alert("Datos insertados correctamente");</script>';
+        header("Location:mostrar.php");
     }
 
     // Asignar el valor del ID_ADMINISTRADOR al campo correspondiente en el formulario
