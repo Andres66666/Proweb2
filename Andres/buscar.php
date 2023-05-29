@@ -155,7 +155,6 @@ function conectar_MySQL($host, $user, $pass, $bd){
             </table>
                 <div class="container column">
                     <button class="modify-button"  type="submit" name="modificar">Modificar</button>
-                    <button class="delete-button"  type="submit" name="eliminar" >Eliminar</button>
                     <button type="button" name="eliminar" ><a href="mostrar.php">Regresar</a> </button>
                 </div>       
             </form>

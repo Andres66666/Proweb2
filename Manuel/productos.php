@@ -61,41 +61,54 @@
 
 <!-- AGREGAR PRODUCTO -->
 <div class="modal fade" id="productAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form id="saveProduct">
-            <div class="modal-body">
-
-                <div id="errorMessage" class="alert alert-warning d-none"></div>
-
-                <div class="mb-3">
-                    <label for="">Producto</label>
-                    <input type="text" name="producto" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label for="">Descripción</label>
-                    <textarea type="text" name="descripcion" class="form-control" style="width: 300px; height: 150px;"></textarea>
-
-
-                </div>
-                <div class="mb-3">
-                    <label for="">Cantidad</label>
-                    <input type="text" pattern="[0-9]+" name="cantidad" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label for="">Precio (Bs)</label>
-                    <input type="text" pattern="[0-9]+" name="precio" class="form-control" />
-                </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Guardar Producto</button>
-            </div>
-        </form>
+            <form id="saveProduct" method="POST">
+                <div class="modal-body">
+                    <div id="errorMessage" class="alert alert-warning d-none"></div>
+
+                    <div class="mb-3">
+                        <label for="">Producto</label>
+                        <input type="text" name="producto" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Descripción</label>
+                        <textarea type="text" name="descripcion" class="form-control" style="width: 300px; height: 150px;"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Categoría</label>
+                        <select name="categoria" class="form-control">
+                            <option value="">Seleccione una categoría</option>
+                            <option value="Producto de belleza">Producto de belleza</option>
+                            <option value="Artefacto de belleza">Artefacto de belleza</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Cantidad</label>
+                        <input type="text" pattern="[0-9]+" name="cantidad" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Precio (Bs)</label>
+                        <input type="text" pattern="[0-9]+" name="precio" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                    <label for="">Estado</label>
+                        <select name="estado" class="form-control">
+                        <option value="1" selected>Activo</option>
+                        <option value="0" disabled>Inactivo</option>
+                    </select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -121,11 +134,18 @@
                 <div class="mb-3">
                     <label for="">Producto</label>
                     <input type="text" name="producto" id="producto" class="form-control" />
-
                 </div>
                 <div class="mb-3">
                     <label for="">Descripción</label>
                     <textarea type="text" name="descripcion" id="descripcion" class="form-control" style="width: 300px; height: 150px;"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="">Categoría</label>
+                    <select name="categoria" id="categoria" class="form-control">
+                        <option value="">Seleccione una categoría</option>
+                        <option value="Producto de belleza">Producto de belleza</option>
+                        <option value="Artefacto de belleza">Artefacto de belleza</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="">Cantidad</label>
@@ -135,6 +155,13 @@
                     <label for="">Precio (Bs)</label>
                     <input type="number" name="precio" pattern="[0-9]+" id="precio" class="form-control" />
                 </div>
+                <div class="mb-3">
+                        <label for="">Estado</label>
+                        <select name="estado" id="estado" class="form-control">
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -144,6 +171,7 @@
         </div>
     </div>
 </div>
+
 
 
 
@@ -166,12 +194,20 @@
                     <p id="view_descripcion" class="form-control"></p>
                 </div>
                 <div class="mb-3">
+                    <label for="">Categoria</label>
+                    <p id="view_categoria" class="form-control"></p>
+                </div>
+                <div class="mb-3">
                     <label for="">Cantidad</label>
                     <p id="view_cantidad" class="form-control"></p>
                 </div>
                 <div class="mb-3">
                     <label for="">Precio (Bs)</label>
                     <p id="view_precio" class="form-control"></p>
+                </div>
+                <div class="mb-3">
+                    <label for="">Estado</label>
+                    <p id="view_estado" class="form-control"></p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -183,29 +219,28 @@
 
 
 
-
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4>PRODUCTOS
-                        
                         <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#productAddModal">
                             Agregar Producto
                         </button>
                     </h4>
                 </div>
                 <div class="card-body">
-
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Producto</th>
                                 <th>Descripción</th>
+                                <th>Categoría</th>
                                 <th>Cantidad</th>
                                 <th>Precio (Bs)</th>
+                                <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -225,27 +260,35 @@
                                         <td><?= $product['id'] ?></td>
                                         <td><?= $product['producto'] ?></td>
                                         <td><?= $product['descripcion'] ?></td>
+                                        <td><?= $product['categoria'] ?></td>
                                         <td><?= $product['cantidad'] ?></td>
                                         <td><?= $product['precio'] ?></td>
                                         <td>
-                                            <button type="button" value="<?=$product['id'];?>" class="viewProductBtn btn btn-info btn-sm">Ver</button>
-                                            <button type="button" value="<?=$product['id'];?>" class="editProductBtn btn btn-success btn-sm">Editar</button>
-                                            <button type="button" value="<?=$product['id'];?>" class="deleteProductBtn btn btn-danger btn-sm">Eliminar</button>
+                                            <?php if ($product['estado'] == 1): ?>
+                                                <span class="badge bg-success">Activo</span>
+                                            <?php else: ?>
+                                                <span class="badge bg-danger">Inactivo</span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <button type="button" value="<?= $product['id'] ?>" class="viewProductBtn btn btn-info btn-sm">Ver</button>
+                                            <button type="button" value="<?= $product['id'] ?>" class="editProductBtn btn btn-success btn-sm">Editar</button>
                                         </td>
                                     </tr>
                                     <?php
                                 }
                             }
                             ?>
-                            
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 
 
@@ -320,6 +363,8 @@
                         $('#descripcion').val(res.data.descripcion);
                         $('#cantidad').val(res.data.cantidad);
                         $('#precio').val(res.data.precio);
+                        $('#categoria').val(res.data.categoria);
+                        $('#estado').val(res.data.estado);
 
                         $('#studentEditModal').modal('show');
                     }
@@ -328,11 +373,6 @@
             });
 
         });
-
-
-
-
-
 
 
         $(document).on('submit', '#updateProduct', function (e) {
@@ -395,6 +435,8 @@
                         $('#view_descripcion').text(res.data.descripcion);
                         $('#view_cantidad').text(res.data.cantidad);
                         $('#view_precio').text(res.data.precio);
+                        $('#view_categoria').text(res.data.categoria);
+                        $('#view_estado').text(res.data.estado);
 
                         $('#productViewModal').modal('show');
                     }

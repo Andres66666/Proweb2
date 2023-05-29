@@ -7,8 +7,10 @@ if (isset($_POST['save_product'])) {
     $descripcion = mysqli_real_escape_string($con, $_POST['descripcion']);
     $cantidad = mysqli_real_escape_string($con, $_POST['cantidad']);
     $precio = mysqli_real_escape_string($con, $_POST['precio']);
+    $categoria = mysqli_real_escape_string($con, $_POST['categoria']);
+    $estado = mysqli_real_escape_string($con, $_POST['estado']);
 
-    if ($producto == NULL || $descripcion == NULL || $cantidad == NULL || $precio == NULL) {
+    if ($producto == NULL || $descripcion == NULL || $cantidad == NULL || $precio == NULL || $categoria == NULL || $estado == NULL) {
         $res = [
             'status' => 422,
             'message' => 'Todos los campos son obligatorios'
@@ -17,7 +19,7 @@ if (isset($_POST['save_product'])) {
         return;
     }
 
-    $query = "INSERT INTO productos (producto, descripcion, cantidad, precio) VALUES ('$producto', '$descripcion', '$cantidad', '$precio')";
+    $query = "INSERT INTO productos (producto, descripcion, cantidad, precio, categoria, estado) VALUES ('$producto', '$descripcion', '$cantidad', '$precio', '$categoria', '$estado')";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
@@ -42,18 +44,17 @@ if (isset($_POST['save_product'])) {
 
 
 
-
-
-
-
 if (isset($_POST['update_product'])) {
     $product_id = mysqli_real_escape_string($con, $_POST['product_id']);
     $producto = mysqli_real_escape_string($con, $_POST['producto']);
     $descripcion = mysqli_real_escape_string($con, $_POST['descripcion']);
     $cantidad = mysqli_real_escape_string($con, $_POST['cantidad']);
     $precio = mysqli_real_escape_string($con, $_POST['precio']);
+    $categoria = mysqli_real_escape_string($con, $_POST['categoria']);
+    $estado = mysqli_real_escape_string($con, $_POST['estado']);
 
-    if ($producto == NULL || $descripcion == NULL || $cantidad == NULL || $precio == NULL) {
+
+    if ($producto == NULL || $descripcion == NULL || $cantidad == NULL || $precio == NULL || $categoria == NULL || $estado == NULL) {
         $res = [
             'status' => 422,
             'message' => 'Todos los campos son obligatorios'
@@ -62,7 +63,7 @@ if (isset($_POST['update_product'])) {
         return;
     }
 
-    $query = "UPDATE productos SET producto='$producto', descripcion='$descripcion', cantidad='$cantidad', precio='$precio' 
+    $query = "UPDATE productos SET producto='$producto', descripcion='$descripcion', cantidad='$cantidad', precio='$precio', categoria = '$categoria', estado = '$estado'
                 WHERE id='$product_id'";
     $query_run = mysqli_query($con, $query);
 
