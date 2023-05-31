@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+      <!-- BOOSTRAP CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+    <link rel="stylesheet" href="css/coverflow.css">
+    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Stylesheet--------------------------->
+    <link rel="stylesheet" href="css/valoracion.css"/>
+    <!--Fav-icon------------------------------>
+    <link rel="shortcut icon" href="images/fav-icon.png"/>
+    <!--poppins-font-family------------------->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--using-Font-Awesome-------------------->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+    <script src="./login/main.js" type="module"></script>
+
+
+</head>
+<body> 
+    <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-light bg-light fixed-top nav-custom nav-link">
+        <div class="container">
+            <a class="navbar-brand mt-2 mt-lg-0" href="#" > <img src="img/logo1.png" width="150px" height="50px" alt="MDB Logo" loading="lazy"/> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+                    <div class="navbar-nav ms-auto justify-content-end">
+                        <a class="nav-link logged-out text-black fw-bold" href="Manuel/productos.php">Productos</a>
+                        <a class="nav-link logged-out text-black fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Servicios</a>
+                        <a class="nav-link logged-out text-black fw-bold"  href="Hugo/index.php" data-bs-toggle="" data-bs-target="">Citas</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Descargar Catalogos</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item text-black" href="#">Productos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-black" href="#">Peinado Varones </a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-black" href="#">Peinado Mujeres </a></li>
+                                </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">ingreso</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="nav-link logged-in dropdown-item text-black " href="index.html">Cerrar Sesion</a></li>
+                                    <li><a class="nav-link logged-in dropdown-item text-black " href="Andres/Empleados.html">Registrar Empleado</a></li>
+                                    <li><a class="nav-link logged-in dropdown-item text-black " href="">Reservas</a></li>
+                                    <li><a class="nav-link logged-in dropdown-item text-black " href="">Reportes</a></li>
+                                </ul>
+                        </li>
+                    </div>
+                </div>
+        </div>
+    </nav>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Toastify js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+            
+    <div class="contenido1">
+        <div id="contenedor-slider" class="contenedor-slider">
+            <div id="slider" class="slider">
+                <section class="slider__section">
+                    <img src="https://e1.pxfuel.com/desktop-wallpaper/774/220/desktop-wallpaper-beauty-parlour-models-beauty-parlour.jpg" class="slider__img"></section>
+                <section class="slider__section">
+                    <img src="https://paradisebeauty.s3.eu-west-3.amazonaws.com/2019/03/paradise-beauty-salon-2-e1552930978752.jpg" class="slider__img"></section>
+                <section class="slider__section">
+                    <img src="https://img.freepik.com/foto-gratis/closeup-retrato-encantadora-mujer-rubia-preparandose-celebracion-fiesta-salon-belleza-maquillaje-elegante-peinado-labios-rojos-look-lujo-satisfaccion-modelo-moda_197531-2009.jpg" class="slider__img"></section>
+                <section class="slider__section">
+                    <img src="https://img.freepik.com/foto-gratis/retrato-primer-plano-estilo-hermosa-mujer-joven-peluqueria-preparandose-fiesta-confeccion-peinado-maquillaje-estilista-profesional-modelo-moda-mundo-belleza-servicio-peluqueria_197531-2008.jpg?w=360" class="slider__img"></section>
+            </div>    
+        </div> 
+
+    </div> 
+    <script defer type="text/javascript" src="js/Coverflow.js"></script> <br><br>
+    <div class="container">
+        <h5 class="card-title text-center titulo">Nuevos Productos</h5>
+    </div><br>
+    <!-- NUEVOS PRODUCTOS -->
+    <div class="container">
+        <div class="card mx-auto" style="width: 18rem;">
+            <img src="https://todo-peluqueriayestetica.com/wp-content/uploads/2018/02/alternative-creme-de-noyle%C2%B4s-web-600x600.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">ALTERNATIVE CREAM</h5>
+                <p class="card-text text-center">Crema anti-edad 24 horas, especialmente recomendada para el rostro y cuello con factor de protección solar 15.</p>
+                <a href="#" class="btn btn-primary d-flex justify-content-center">Ir a algún lugar</a>
+            </div>
+        </div>
+        <div class="card mx-auto" style="width: 18rem;">
+            <img src="https://st2.depositphotos.com/1005833/6557/i/600/depositphotos_65579875-stock-photo-portrait-of-beautiful-brunette-woman.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">PAGOW</h5>
+                <p class="card-text text-center">
+                    PAGOW 700 piezas de garra de embrague de bala para pendientes pesados caídos, tapones de goma perforados (plata y dorado)</p>
+                <a href="#" class="btn btn-primary d-flex justify-content-center">Ir a algún lugar</a>
+            </div>
+        </div>
+        <div class="card mx-auto" style="width: 18rem;">
+            <img src="https://images.hola.com/fashion/imagenes/belleza/2022030973027/perfumes-exitosos-marcas-lujo-zara/0-332-664/perfumes-e.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Miss Dior</h5>
+                <p class="card-text text-center">torbellino floral embriagador y refrescante. Una Miss Dior radiante que se lanza de lleno en un torbellino sin fin de vida y amor.</p>
+                <a href="#" class="btn btn-primary d-flex justify-content-center">Ir a algún lugar</a>
+            </div>
+        </div>
+    </div><br><br>
+    <div class="container">
+        <h5 class="card-title text-center titulo">Galeria de Fotos</h5>
+    </div><br>
+    <!-- Galeria de fotos -->
+    <div class="container">
+        <div class="card mx-auto btn-floating" style="width: 18rem;">
+            <img src="https://todo-peluqueriayestetica.com/wp-content/uploads/2018/02/alternative-creme-de-noyle%C2%B4s-web-600x600.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-157-549/bio-oil-aceite-corporal-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/fashion/imagenes/belleza/2022030973027/perfumes-exitosos-marcas-lujo-zara/0-332-664/perfumes-e.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-60-176/ysl-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-213-156/limpiador-foreo-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-157-495/eight-hour-cream-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-157-497/charlottes-magic-crema-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-60-168/clarins-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-113-720/biotherm-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-60-386/avene-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-213-206/miracle-water-a.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card mx-auto btn-floating " style="width: 18rem;">
+            <img src="https://images.hola.com/imagenes/seleccion/20211012197373/mejores-productos-de-belleza/1-113-727/kerastase-pack-a.jpg" class="card-img-top" alt="...">
+        </div>
+    </div>
+
+     <!--Testimonials------------------->
+     <section id="testimonials">
+        <!--heading--->
+        <div class="testimonial-heading">
+            <span>Commentarios</span>
+        </div>
+        <!--testimonials-box-container------>
+        <div class="testimonial-box-container">
+            <!--BOX-1-------------->
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+                        <div class="profile-img">
+                            <img src="https://media.licdn.com/dms/image/C4D03AQFKBSJ6a3DKjA/profile-displayphoto-shrink_800_800/0/1596040807718?e=2147483647&v=beta&t=MEUTT5kmbK2exZkStiw9I3KJ0iGj5oMGgSpGJL8R_dc" />
+                        </div>
+                        <!--name-and-username-->
+                        <div class="name-user">
+                            <strong>Anabel Angus </strong>
+                            <span>@touseeqijazweb</span>
+                        </div>
+                    </div>
+                    <!--reviews------>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i><!--Empty star-->
+                    </div>
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>Gracias.
+                        Me encantó el corte de pelo que me hicieron, moderno y cómodo. Iba buscando un flequillo favorecedor y acertaron 100%. Sin duda volveré a partir de ahora. Gracias Mayte y María!!</p>
+                </div>
+                <div class="name-user">
+                    <span>Fecha :<p class="d-inline"> 29 de abril de 2023</p></span>
+                </div>
+            </div>
+            <!--BOX-2-------------->
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+                        <div class="profile-img">
+                            <img src="https://www.cidob.org/dass-2019041701/var/plain/storage/images/new_site/biografias_lideres_politicos/america_del_sur/bolivia/evo_morales_ayma/1230506-12-esl-ES/evo_morales_ayma.jpg" />
+                        </div>
+                        <!--name-and-username-->
+                        <div class="name-user">
+                            <strong>J.K Rowling</strong>
+                            <span>@jkrowling</span>
+                        </div>
+                    </div>
+                    <!--reviews------>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><!--Empty star-->
+                    </div>
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>La verdad un excelente servicio.. Instalaciones de primera... Yo he estado en varios,inclusive en el extranjero y no pille nada igual como este salon de belleza... Recomendado 100%</p>
+                </div>
+                <div class="name-user">
+                    <span>Fecha :<p class="d-inline"> 30 de abril de 2023</p></span>
+                </div>
+            </div>
+            <!--BOX-3-------------->
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+                        <div class="profile-img">
+                            <img src="https://www.paginasiete.bo/binrepository/480x320/1c0/480d250/none/106951/QGGM/victor-gutierrez-17_21-2938402_20220829174727.jpg" />
+                        </div>
+                        <!--name-and-username-->
+                        <div class="name-user">
+                            <strong>Harry Potter</strong>
+                            <span>@DanielRedclief</span>
+                        </div>
+                    </div>
+                    <!--reviews------>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i><!--Empty star-->
+                    </div>
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>El mejor lugar para relajarse, excelente atención y trabajo.
+                        Aunque existen muchos sitios similares este sin duda es el mejor</p>
+                </div>
+                <div class="name-user">
+                    <span>Fecha :<p class="d-inline"> 30 de abril de 2023</p></span>
+                </div>
+            </div>
+            <!--BOX-4-------------->
+        </div>
+    </section>
+    <br><br>
+    
+    
+    <br><br>
+    <div class="my-5" style="padding-left: 300px; padding-right: 300px;">
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-white" style=" background-color: #504f4f;">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+                <section class="">
+                <!--Grid row-->
+                <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="width: 400px;" >
+                    <h6 class="text-uppercase mb-4 font-weight-bold titulo text-center" style="color: #ffffff;">Nombre del Salon de belleza </h6>
+                    <p>
+                        El Salón de belleza Lindsay, 
+                        se encarga del arreglo personal en mujeres, varones 
+                        donde se realizan cortes, tintes, peinados, maquillado, 
+                        uñas, cejas y pestañas y otros.
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none" />
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2" style="width: 400px; padding-left: 100px;">
+                    <h6 class="text-uppercase mb-4 font-weight-bold titulo text-center" style="color: #ffffff;">Productos</h6>
+                    <p><a class="text-white">Accesorios</a></p>
+                    <p><a class="text-white">Maquillaje</a></p>
+                    <p><a class="text-white">Depilación</a></p>
+                    <p><a class="text-white">Uñas</a></p>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none" />
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none" />
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="width: 400px;">
+                    <h6 class="text-uppercase mb-4 font-weight-bold titulo text-center" style="color: #ffffff;">Contactos</h6>
+                    <p><i class="fas fa-home mr-3"></i> El Alto: Satelite, NY 10012, US</p>
+                    <p><i class="fas fa-envelope mr-3"></i> cya2024773@est.univalle.edu</p>
+                    <p><i class="fas fa-phone mr-3"></i> + 591 787 454 66</p>
+                    <p><i class="fas fa-map-marker-alt mr-3"></i><a style="color: white;" href="https://goo.gl/maps/EBKZjPLSdx3y3AnF6">Google Maps</a></p>
+                </div>
+                
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-4 text-center " style="width: 500px;">
+                    <h6 class="text-uppercase mb-4 font-weight-bold text-center titulo" style="color: #ffffff;">Síganos en nuetras redes </h6>
+                    <!-- Facebook -->
+                    <a class="btn btn-primary btn-floating m-1 rounded-circle btn-floating" style="background-color: #3b5998; font-size: 30px;" href="#!" role="button" ><i class="fab fa-facebook"></i> </a>      
+                    <!-- Twitter -->
+                    <a class="btn btn-primary btn-floating m-1 rounded-circle btn-lg btn-floating" style="background-color: #000000; font-size: 30px;" href="#!" role="button" ><i class="fab fa-tiktok"></i></a>
+                    <!-- Google -->
+                    <a class="btn btn-primary btn-floating m-1 rounded-circle btn-floating" style="background-color: #dd4b39; font-size: 30px;" href="#!" role="button" ><i class="fab fa-youtube"></i></a>
+                    <!-- Instagram -->
+                    <a class="btn btn-primary btn-floating m-1 rounded-circle btn-lg btn-floating" style="background-image: linear-gradient(135deg, #405DE6 0%, #5851DB 10%, 	#833AB4 20%, #C13584 30%, #E1306C 40%, #FD1D1D 50%, 	#F56040 60%, #F77737 70%,#FCAF45 80%, #FFDC80 100%); font-size: 30px;" href="#!" role="button" ><i class="fab fa-instagram"></i></a>
+                    <!-- Linkedin -->
+                </div>
+                </div>
+                <!--Grid row-->
+                </section>
+                <!-- Section: Links -->
+            </div>
+            <!-- Grid container -->
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)" >© 2023 Derechos de autor:
+                <a class="text-white" href="https://mdbootstrap.com/">Grupo Cian</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </div>
+    <!-- End of .container -->
+</body>
+</html>
