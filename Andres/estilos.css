@@ -1,18 +1,105 @@
-body {
-    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/508/876/desktop-wallpaper-beauty-parlour-model-beauty-parlour.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-  
-  table {
-    margin: 0 auto;
-    text-align: left;
-    border-collapse: separate;
-    border-spacing:0 5px ;
-    width: 100%;
-  }
-  td{
-    padding: auto; 
-  }
+
+table {
+  margin: 0 auto;
+  text-align: left;
+  border-collapse: separate;
+  border-spacing:0 5px ;
+  width: 100%;
+}
+td{
+  padding: auto; 
+}
+li {
+  padding: 10px;
+}
+
+nav {
+  background-color: rgb(209, 190, 206);
+}
+th{
+  color: black;
+}
+.container{
+  background-color: white;
+}
+/*a{
+  color: black;
+  font-size: 20px;
+}*/
+.center-form {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  text-align: center;
+}
+.contenido{	
+  width: 380px;
+  height: auto;
+  margin: 0 auto;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  padding: 20px;
+}
+.texto1 img{
+margin-right: 10px;
+margin-top: 10px;
+position:relative;
+width: 210px;
+height: 210px;
+float: left;
+}
+
+label {
+display: block;
+margin-bottom: 5px;
+font-family: "Latin Modern Roman"; font-style: italic;
+color: white;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;}
+input{
+background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
+color: aliceblue;
+}
+select{
+background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
+color: white;
+}
+option{
+color:black;
+}
+button {
+background-color: #66ca5d;
+border: 1px solid #999;
+color: white; /* Color del texto */
+padding: 5px 5px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 8px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 10px;
+box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+text-transform: uppercase;
+}
+.form-buttons {
+text-align: center; /* Centrar horizontalmente */
+margin-top: 10px; /* Espacio entre el formulario y los botones */
+}
+h1{
+text-align: center;
+}
+a{
+text-decoration: none;
+color: aliceblue;
+}
+#datos {
+display: block; /* Mostrar los datos inicialmente */
+}
+
+.oculto {
+display: none; /* Ocultar los datos cuando se aplique esta clase */
+}
