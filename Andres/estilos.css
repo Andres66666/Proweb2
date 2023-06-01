@@ -1,0 +1,18 @@
+body {
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/508/876/desktop-wallpaper-beauty-parlour-model-beauty-parlour.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  
+  table {
+    margin: 0 auto;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing:0 5px ;
+    width: 100%;
+  }
+  td{
+    padding: auto; 
+  }
