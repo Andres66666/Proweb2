@@ -105,7 +105,7 @@
         <!-- End -->
 
         <li class="item">
-          <a href="Manuel/productos.php" class="nav_link">
+          <a href="../Manuel/productos.php" class="nav_link">
             <span class="navlink_icon">
               <i class="bx bx-loader-circle"></i>
             </span>
@@ -113,7 +113,7 @@
           </a>
         </li>
         <li class="item">
-          <a href="Hugo/index.php" class="nav_link">
+          <a href="index.php" class="nav_link">
             <span class="navlink_icon">
               <i class="bx bx-filter"></i>
             </span>
@@ -121,11 +121,11 @@
           </a>
         </li>
         <li class="item">
-          <a href="#" class="nav_link">
+          <a href="horarios.php" class="nav_link">
             <span class="navlink_icon">
               <i class="bx bx-cloud-upload"></i>
             </span>
-            <span class="navlink">Upload new</span>
+            <span class="navlink">Horarios</span>
           </a>
         </li>
       </ul>
