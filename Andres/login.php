@@ -22,7 +22,7 @@ function autenticarAdministrador($conexion, $USUARIO, $CONTRASENIA)
         // Iniciar sesión y redirigir al panel de administración
         $_SESSION['admin'] = true;
         echo '<script>alert("Datos correctos");</script>';
-        header("Location:../indexadm.html");
+        header("Location:../prueba/indexadmin.php");
         exit();
     } else {
         // Datos incorrectos, mostrar mensaje de alerta

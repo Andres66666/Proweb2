@@ -2,4 +2,4 @@
 include_once "header.php";
 ?>
 
-<?php include_once "footer.php"; ?>z
+<?php include_once "footer.php"; ?>
