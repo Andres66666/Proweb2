@@ -99,7 +99,15 @@
             <span class="navlink_icon">
               <i class="bx bxs-magic-wand"></i>
             </span>
-            <span class="navlink">Usuarios</span>
+            <span class="navlink">Empleados</span>
+          </a>
+        </li>
+        <li class="item">
+          <a href="../Andres/cliente.php" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bxs-magic-wand"></i>
+            </span>
+            <span class="navlink">Clinetes</span>
           </a>
         </li>
         <!-- End -->
