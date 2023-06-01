@@ -9,13 +9,8 @@ if (isset($_POST['save_product'])) {
     $precio = mysqli_real_escape_string($con, $_POST['precio']);
     $categoria = mysqli_real_escape_string($con, $_POST['categoria']);
     $estado = mysqli_real_escape_string($con, $_POST['estado']);
+    $imagen = mysqli_real_escape_string($con, $_POST['imagen']);
 
-    // Obtener el nombre del archivo de imagen
-    $imagen = $_FILES['imagen']['name'];
-    // Obtener la ubicación temporal del archivo de imagen
-    $imagen_temp = $_FILES['imagen']['tmp_name'];
-    // Mover el archivo de imagen a la carpeta deseada
-    move_uploaded_file($imagen_temp, "imagenes/" . $imagen);
 
     if ($producto == NULL || $descripcion == NULL || $cantidad == NULL || $precio == NULL || $categoria == NULL || $estado == NULL || $imagen == NULL) {
         $res = [
