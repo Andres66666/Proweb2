@@ -132,7 +132,6 @@
                 <div class="modal-body">
                     <div id="errorMessageUpdate" class="alert alert-warning d-none"></div>
                     <input type="hidden" name="product_id" id="product_id">
-
                     <div class="mb-3">
                         <label for="">Producto</label>
                         <input type="text" name="producto" id="producto" class="form-control" />
@@ -505,7 +504,6 @@ $(document).on('submit', '#updateProduct', function (e) {
 
         $(document).on('click', '.deleteProductBtn', function (e) {
             e.preventDefault();
-
             if(confirm('¿Estas seguro de que quieres eliminar este producto?'))
             {
                 var product_id = $(this).val();
@@ -517,15 +515,12 @@ $(document).on('submit', '#updateProduct', function (e) {
                         'product_id': product_id
                     },
                     success: function (response) {
-
                         var res = jQuery.parseJSON(response);
                         if(res.status == 500) {
-
                             alert(res.message);
                         }else{
                             alertify.set('notifier','position', 'top-right');
                             alertify.success(res.message);
-
                             $('#myTable').load(location.href + " #myTable");
                         }
                     }
