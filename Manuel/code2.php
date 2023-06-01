@@ -10,7 +10,14 @@ if (isset($_POST['save_product'])) {
     $categoria = mysqli_real_escape_string($con, $_POST['categoria']);
     $estado = mysqli_real_escape_string($con, $_POST['estado']);
 
-    if ($producto == NULL || $descripcion == NULL || $cantidad == NULL || $precio == NULL || $categoria == NULL || $estado == NULL) {
+    // Obtener el nombre del archivo de imagen
+    $imagen = $_FILES['imagen']['name'];
+    // Obtener la ubicación temporal del archivo de imagen
+    $imagen_temp = $_FILES['imagen']['tmp_name'];
+    // Mover el archivo de imagen a la carpeta deseada
+    move_uploaded_file($imagen_temp, "imagenes/" . $imagen);
+
+    if ($producto == NULL || $descripcion == NULL || $cantidad == NULL || $precio == NULL || $categoria == NULL || $estado == NULL || $imagen == NULL) {
         $res = [
             'status' => 422,
             'message' => 'Todos los campos son obligatorios'
@@ -19,7 +26,7 @@ if (isset($_POST['save_product'])) {
         return;
     }
 
-    $query = "INSERT INTO productos (producto, descripcion, cantidad, precio, categoria, estado) VALUES ('$producto', '$descripcion', '$cantidad', '$precio', '$categoria', '$estado')";
+    $query = "INSERT INTO productos (producto, descripcion, cantidad, precio, categoria, estado, imagen) VALUES ('$producto', '$descripcion', '$cantidad', '$precio', '$categoria', '$estado', '$imagen')";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
@@ -44,6 +51,7 @@ if (isset($_POST['save_product'])) {
 
 
 
+
 if (isset($_POST['update_product'])) {
     $product_id = mysqli_real_escape_string($con, $_POST['product_id']);
     $producto = mysqli_real_escape_string($con, $_POST['producto']);
@@ -53,6 +61,9 @@ if (isset($_POST['update_product'])) {
     $categoria = mysqli_real_escape_string($con, $_POST['categoria']);
     $estado = mysqli_real_escape_string($con, $_POST['estado']);
 
+    // Nuevos campos para la imagen
+    $imagen = $_FILES['imagen']['name'];
+    $imagen_tmp = $_FILES['imagen']['tmp_name'];
 
     if ($producto == NULL || $descripcion == NULL || $cantidad == NULL || $precio == NULL || $categoria == NULL || $estado == NULL) {
         $res = [
@@ -63,7 +74,10 @@ if (isset($_POST['update_product'])) {
         return;
     }
 
-    $query = "UPDATE productos SET producto='$producto', descripcion='$descripcion', cantidad='$cantidad', precio='$precio', categoria = '$categoria', estado = '$estado'
+    // Mover la imagen a la ubicación deseada
+    move_uploaded_file($imagen_tmp, "imagenes/$imagen");
+
+    $query = "UPDATE productos SET producto='$producto', descripcion='$descripcion', cantidad='$cantidad', precio='$precio', categoria = '$categoria', estado = '$estado', imagen = '$imagen'
                 WHERE id='$product_id'";
     $query_run = mysqli_query($con, $query);
 
@@ -84,6 +98,7 @@ if (isset($_POST['update_product'])) {
         return;
     }
 }
+
 
 
 
