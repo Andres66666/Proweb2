@@ -4,10 +4,8 @@ include_once "header.php";
 
 <?php
 include('config.php');
-
   $SqlEventos   = ("SELECT * FROM eventoscalendar");
   $resulEventos = mysqli_query($con, $SqlEventos);
-
 ?>
 <div class="mt-5"></div>
 
@@ -60,7 +58,10 @@ $(document).ready(function() {
     selectable: true,
     selectHelper: false,
 
-    
+    columnHeaderFormat: "dddd",
+    listDayAltFormat: false,
+    listDayFormat: "dd",
+    hiddenDays: [0],
 
 //Nuevo Evento
   select: function(start, end){

@@ -1,7 +1,19 @@
 <?php
 
 require 'dbcon.php';
+if (empty($_POST['producto']) || empty($_POST['descripcion']) || empty($_POST['cantidad']) || empty($_POST['precio']) || empty($_POST['categoria']) || empty($_POST['estado'])) {
+    echo "Por favor, ingrese todos los campos";
+} else {
+    if (isset($_POST['save_product'])) {
+        $producto =  $_POST['producto'];
+        $descripcion = $_POST['descripcion'];
+        $cantidad = $_POST['cantidad'];
+        $precio =  $_POST['precio'];
+        $categoria = $_POST['categoria'];
+        $img = addslashes(file_get_contents($_FILES['img']['tmp_name']));
+        $estado =  $_POST['estado'];
 
+<<<<<<< HEAD
 if (isset($_POST['save_product'])) {
     $producto = mysqli_real_escape_string($con, $_POST['producto']);
     $descripcion = mysqli_real_escape_string($con, $_POST['descripcion']);
@@ -44,6 +56,27 @@ if (isset($_POST['save_product'])) {
         ];
         echo json_encode($res);
         return;
+=======
+        $query = "INSERT INTO productos (producto, descripcion, cantidad, precio, categoria, img, estado) VALUES ('$producto', '$descripcion', '$cantidad', '$precio', '$categoria', '$img', '$estado')";
+        $query_run = mysqli_query($con, $query);
+
+        if ($query_run) {
+            $res = [
+                'status' => 200,
+                'message' => 'Producto registrado correctamente'
+            ];
+            echo json_encode($res);
+            return;
+        } else {
+            $error_message = mysqli_error($con);
+            $res = [
+                'status' => 500,
+                'message' => 'Error al crear el producto: ' . $error_message
+            ];
+            echo json_encode($res);
+            return;
+        }
+>>>>>>> b1d6c45c804ca5dc94a55d7de9732fa112ff50a0
     }
 }
 
@@ -102,15 +135,13 @@ if (isset($_POST['update_product'])) {
 
 
 
-if(isset($_GET['product_id']))
-{
+if (isset($_GET['product_id'])) {
     $product_id = mysqli_real_escape_string($con, $_GET['product_id']);
 
     $query = "SELECT * FROM productos WHERE id='$product_id'";
     $query_run = mysqli_query($con, $query);
 
-    if(mysqli_num_rows($query_run) == 1)
-    {
+    if (mysqli_num_rows($query_run) == 1) {
         $product = mysqli_fetch_array($query_run);
 
         $res = [
@@ -120,9 +151,7 @@ if(isset($_GET['product_id']))
         ];
         echo json_encode($res);
         return;
-    }
-    else
-    {
+    } else {
         $res = [
             'status' => 404,
             'message' => 'Id de producto no encotrado'
@@ -134,24 +163,20 @@ if(isset($_GET['product_id']))
 
 
 
-if(isset($_POST['delete_product']))
-{
+if (isset($_POST['delete_product'])) {
     $product_id = mysqli_real_escape_string($con, $_POST['product_id']);
 
     $query = "DELETE FROM productos WHERE id='$product_id'";
     $query_run = mysqli_query($con, $query);
 
-    if($query_run)
-    {
+    if ($query_run) {
         $res = [
             'status' => 200,
             'message' => 'Producto eliminado correctamente'
         ];
         echo json_encode($res);
         return;
-    }
-    else
-    {
+    } else {
         $res = [
             'status' => 500,
             'message' => 'Producto no eliminado'
@@ -160,4 +185,3 @@ if(isset($_POST['delete_product']))
         return;
     }
 }
-?>
