@@ -1,6 +1,124 @@
-<?php
-include_once "../prueba/header.php";
-?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro De Empleados</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- Bostra-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/508/876/desktop-wallpaper-beauty-parlour-model-beauty-parlour.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+        li {
+            padding: 10px;
+        }
+
+        nav {
+            background-color: rgb(209, 190, 206);
+        }
+        th{
+            color: black;
+        }
+        .container{
+            background-color: white;
+        }
+        /*a{
+            color: black;
+            font-size: 20px;
+        }*/
+        .center-form {
+            display: block;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 10vh;
+            text-align: center;
+        }
+        .contenido{	
+            width: 380px;
+            height: auto;
+            margin: 0 auto;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            padding: 20px;
+        }
+.texto1 img{
+  margin-right: 10px;
+  margin-top: 10px;
+  position:relative;
+  width: 210px;
+  height: 210px;
+  float: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: "Latin Modern Roman"; font-style: italic;
+  color: white;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;}
+input{
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
+  color: aliceblue;
+}
+select{
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));
+  color: white;
+}
+option{
+  color:black;
+}
+button {
+  background-color: #66ca5d;
+  border: 1px solid #999;
+  color: white; /* Color del texto */
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+  text-transform: uppercase;
+}
+.form-buttons {
+  text-align: center; /* Centrar horizontalmente */
+  margin-top: 10px; /* Espacio entre el formulario y los botones */
+}
+h1{
+  text-align: center;
+}
+a{
+  text-decoration: none;
+  color: aliceblue;
+}
+#datos {
+  display: block; /* Mostrar los datos inicialmente */
+}
+
+.oculto {
+  display: none; /* Ocultar los datos cuando se aplique esta clase */
+}
+    </style>
+     
+</head>
+
+<body>
 
     <nav class="d-flex align-items-center" style="padding-left: 20px; padding-top: 20px; padding-bottom: 20px;">
         <img style="width: 100px; height: 100px;" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/beauty-salon-logo-design-template-e61ddd9eace61452cfcab9f89683c64d_screen.jpg?ts=1651761686.png" class="mr-3">
@@ -174,9 +292,7 @@ include_once "../prueba/header.php";
     </div>  
         <br>
     <?php
-            ini_set("display_errors","on");
-            $conexion = conectar_MySQL("sql308.byethost14.com","b14_33887233","13247291","b14_33887233_Salon");
-            
+    require '../Manuel/dbcon.php';
             function conectar_MySQL($host, $user, $pass, $bd){
                 $conexion = mysqli_connect($host, $user, $pass, $bd) or die ("Error al conectar: " . mysqli_connect_error());
                 mysqli_select_db($conexion, $bd) or die ("Error al seleccionar la BD: " . mysqli_error($conexion));
@@ -261,7 +377,7 @@ include_once "../prueba/header.php";
                             <th>Foto</th>
                         </tr>
                         <?php 
-                        require 'Manuel/dbcon.php';
+                        require '../Manuel/dbcon.php';
                         $query=mysqli_query($con, "SELECT * FROM EMPLEADO");
                         $query_run=mysqli_num_rows($query);
                         if($query_run>0)
@@ -500,6 +616,7 @@ include_once "../prueba/header.php";
         
         mysqli_close($conexion);
     ?>
-<?php
-include_once "../prueba/footer.php";
-?>
+    
+</body>
+
+</html>
