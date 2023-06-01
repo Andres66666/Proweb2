@@ -107,7 +107,15 @@
             <span class="navlink_icon">
               <i class="bx bxs-magic-wand"></i>
             </span>
-            <span class="navlink">Clinetes</span>
+            <span class="navlink">Clientes</span>
+          </a>
+        </li>
+        <li class="item">
+          <a href="../laura/ventas.php " class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bxs-magic-wand"></i>
+            </span>
+            <span class="navlink">Ventas</span>
           </a>
         </li>
         <!-- End -->
