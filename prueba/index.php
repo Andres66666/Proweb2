@@ -4,10 +4,8 @@ include_once "header.php";
 
 <?php
 include('config.php');
-
   $SqlEventos   = ("SELECT * FROM eventoscalendar");
   $resulEventos = mysqli_query($con, $SqlEventos);
-
 ?>
 <div class="mt-5"></div>
 

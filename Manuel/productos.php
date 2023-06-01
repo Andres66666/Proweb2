@@ -229,7 +229,7 @@
                 <div class="card-header">
                         <div class="float-end">
                             <div class="input-group" style="max-width: 300px;">
-                               &nbsp; &nbsp;  <h2>Buscar:  &nbsp;</h2> <input type="text" id="searchInput" class="form-control" placeholder="Buscar producto">
+                                &nbsp; &nbsp;  <h2>Buscar:  &nbsp;</h2> <input type="text" id="searchInput" class="form-control" placeholder="Buscar producto">
                             </div>
                         </div>
                         <button type="button" class="btn btn-primary float-start" data-bs-toggle="modal" data-bs-target="#productAddModal">
