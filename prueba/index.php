@@ -58,7 +58,10 @@ $(document).ready(function() {
     selectable: true,
     selectHelper: false,
 
-    
+    columnHeaderFormat: "dddd",
+    listDayAltFormat: false,
+    listDayFormat: "dd",
+    hiddenDays: [0],
 
 //Nuevo Evento
   select: function(start, end){
