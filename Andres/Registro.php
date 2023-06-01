@@ -34,6 +34,8 @@
 
         li {
             padding: 10px;
+            color: black;
+            font-size: 10px;
         }
 
         nav {
@@ -213,7 +215,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-light bg-light fixed-top nav-custom nav-link">
         <div class="container">
-            <a class="navbar-brand mt-2 mt-lg-0" href="#"> <img src="img/logo1.png" width="150px" height="50px" alt="MDB Logo" loading="lazy" /> </a>
+            <a class="navbar-brand mt-2 mt-lg-0" href="#"> <img src="../img/logo1.png" width="150px" height="50px" alt="MDB Logo" loading="lazy" /> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
