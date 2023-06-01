@@ -60,7 +60,7 @@
         }
 
         .contenido {
-            width: 380px;
+            width: 400px;
             height: auto;
             margin: 0 auto;
             justify-content: center;
@@ -136,7 +136,7 @@
 
         a {
             text-decoration: none;
-            color: aliceblue;
+            color: black;
         }
 
         #datos {
@@ -209,6 +209,10 @@
             transform: rotate(135deg);
             font-size: 25px;
         }
+
+        li a {
+            color: black;
+        }
     </style>
 </head>
 
@@ -221,25 +225,40 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto justify-content-end">
-                    <a class="nav-link logged-out text-black fw-bold" href="#" data-bs-toggle="modal" style="font-family: ITC Bradley Hand Std Bold; font-size: 25px; ">SERVICIOS</a>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: ITC Bradley Hand Std Bold;  font-size: 25px;">DESCARGAR CATALOGO</a>
+                        <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: ITC Bradley Hand Std Bold;  font-size: 25px; color: black;">SERVICIOS</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-family: ITC Bradley Hand Std Bold;">
-                            <li><a class="dropdown-item text-black" href="#">PRODUCTOS</a></li>
+                            <li><a class="dropdown-item text-black" href="#" style="color: black;">CORTES</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item text-black" href="#">PEINDAOS VARONES</a></li>
+                            <li><a class="dropdown-item text-black" href="#" style="color: black;">PEINADOS</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item text-black" href="#">PINADO MUJERES </a></li>
+                            <li><a class="dropdown-item text-black" href="#" style="color: black;">MAQUILLAJE</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: ITC Bradley Hand Std Bold;  font-size: 25px; color: black;">DESCARGAR CATALOGO</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-family: ITC Bradley Hand Std Bold;">
+                            <li><a class="dropdown-item text-black" href="#" style="color: black;">PRODUCTOS</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-black" href="#" style="color: black;">PEINDAOS VARONES</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-black" href="#" style="color: black;">PINADO MUJERES </a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: ITC Bradley Hand Std Bold;  font-size: 25px;">LOGIN</a>
+                        <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: ITC Bradley Hand Std Bold;  color: black; font-size: 25px;">LOGIN</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-black nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signinModal" style="font-family: ITC Bradley Hand Std Bold;  font-size: 25px;">INICIAR SECION</a></li>
+                            <li><a class="dropdown-item text-black nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signinModal" style="font-family: ITC Bradley Hand Std Bold;   color: black; font-size: 25px;">INICIAR SECION</a></li>
                         </ul>
                     </li>
                     <!-- Script JavaScript para controlar la visibilidad de Reservas y Reportes -->
@@ -249,12 +268,12 @@
     </nav>
     <br><br><br><br>
     <div class="modal fade" id="Registrar" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog" style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));">
+            <div class="modal-content" style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));">
                 <div class="modal-body">
                     <section class="contenido">
                         <form action="Registro.php" method="post" onsubmit="return validateForm()" enctype="multipart/form-data">
-                            <h1>Formulario Empleado</h1>
+                            <h1 style="color: #fff;">Formulario Empleado</h1>
                             <table>
                                 <tr>
                                     <td>
@@ -325,7 +344,7 @@
                                         </script>
                                     </td>
                                     <td style="padding-left: 10px;">
-                                        <div class="form-group" style="margin-top: -25px;">
+                                        <div class="form-group" style="margin-top: 5px;">
                                             <label for="">CI <span id="error_ID_EMPLEADO"></span> </label><br>
                                             <input type="number" name="ID_EMPLEADO" id="ID_EMPLEADO" placeholder="Ingrese Su Carnet">
                                         </div>
@@ -500,7 +519,7 @@
                                 <th>Foto</th>
                             </tr>
                             <?php
-                            require 'Manuel/dbcon.php';
+                            require '../Manuel/dbcon.php';
                             $query = mysqli_query($con, "SELECT * FROM EMPLEADO");
                             $query_run = mysqli_num_rows($query);
                             if ($query_run > 0) {
@@ -540,13 +559,27 @@
                 if (mysqli_num_rows($resultado) > 0) {
                     $accidente = mysqli_fetch_assoc($resultado);
             ?>
-                    <section class="contenido" id="datos">
+                    <section class="contenido" id="datos" style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5 ));">
                         <form method="POST" action="Registro.php" enctype="multipart/form-data">
+                            <h1 style="color: #fff;">Actualizacion De Datos</h1>
                             <table>
                                 <tr>
                                     <td>
                                         <div class="form-group" style="text-align: center;">
-                                            <canvas style="border:black 1px dashed;" id="myCanvas" width="150px" height="150px"></canvas><br>
+                                            <?php
+                                            require '../Manuel/dbcon.php';
+                                            $query = mysqli_query($con, "SELECT * FROM EMPLEADO WHERE ID_EMPLEADO = $ID_accidente");
+                                            $query_run = mysqli_num_rows($query);
+                                            if ($query_run > 0) {
+                                                while ($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                                    <img height="80px" width="80px" src="data:image/jpg;base64, <?php echo base64_encode($data['FOTO']) ?>"><br>
+                                                    <canvas style="border:black 1px dashed;" id="myCanvas" width="150px" height="150px"></canvas>
+
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                             <input type="file" id="myInput" name="FOTO" style="display: none;" title="Foto png o jpg" accept=".jpg, .jpeg, .png" multiple tabindex="4" value="" required>
                                             <button type="button" id="btnCargarImagenB">Cargar Imagen📷</button>
                                         </div>
@@ -738,7 +771,7 @@
             <a href="https://www.youtube.com/channel/UCF8EGfmr_5WoqGkDZBNd7Mw" class="fa fa-youtube"></a>
             <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZXMifQ%3D%3D%22%7D" class="fa fa-twitter"></a>
             <a href="#" class="fa fa-pinterest"></a>
-            <a href="https://www.pinterest.com/tu-usuario" target="_blank" class="fa fa-home"></a>
+            <a href="../index.html" target="_blank" class="fa fa-home"></a>
 
         </div>
         <div class="btn-mas">
