@@ -35,8 +35,16 @@
             </div>
             <form id="saveProduct" method="POST">
                 <div class="modal-body">
+<<<<<<< HEAD
                     <div id="errorMessage" class="alert alert-warning d-none"></div>
+=======
+<<<<<<< HEAD
+                    <div id="errorMessageUpdate" class="alert alert-warning d-none"></div>
+                    <input type="hidden" name="product_id" id="product_id">
+=======
+>>>>>>> 3c27be75bab5d8d8f133404db7abe88fd1b2d9e1
 
+>>>>>>> b1d6c45c804ca5dc94a55d7de9732fa112ff50a0
                     <div class="mb-3">
                         <label for="">Producto</label>
                         <input type="text" name="producto" class="form-control" />
@@ -469,9 +477,18 @@ $(document).on('submit', '#updateProduct', function (e) {
 
         $(document).on('click', '.deleteProductBtn', function (e) {
             e.preventDefault();
-
+<<<<<<< HEAD
             if(confirm('¿Estas seguro de que quieres eliminar este producto?'))
             {
+=======
+
+<<<<<<< HEAD
+            if(confirm('¿Estas seguro de que quieres eliminar este producto?'))
+            {
+=======
+            if (confirm('¿Estas seguro de que quieres eliminar este producto?')) {
+>>>>>>> b1d6c45c804ca5dc94a55d7de9732fa112ff50a0
+>>>>>>> 3c27be75bab5d8d8f133404db7abe88fd1b2d9e1
                 var product_id = $(this).val();
                 $.ajax({
                     type: "POST",
@@ -480,16 +497,25 @@ $(document).on('submit', '#updateProduct', function (e) {
                         'delete_product': true,
                         'product_id': product_id
                     },
+<<<<<<< HEAD
                     success: function (response) {
+=======
+<<<<<<< HEAD
+                    success: function (response) {
+                        var res = jQuery.parseJSON(response);
+                        if(res.status == 500) {
+=======
+                    success: function(response) {
+>>>>>>> 3c27be75bab5d8d8f133404db7abe88fd1b2d9e1
 
                         var res = jQuery.parseJSON(response);
                         if(res.status == 500) {
 
+>>>>>>> b1d6c45c804ca5dc94a55d7de9732fa112ff50a0
                             alert(res.message);
                         }else{
                             alertify.set('notifier','position', 'top-right');
                             alertify.success(res.message);
-
                             $('#myTable').load(location.href + " #myTable");
                         }
                     }
