@@ -10,9 +10,9 @@
   <form name="formEventoUpdate" id="formEventoUpdate" action="UpdateEvento.php" class="form-horizontal" method="POST">
     <input type="hidden" class="form-control" name="idEvento" id="idEvento">
     <div class="form-group">
-      <label for="evento" class="col-sm-12 control-label">Nombre del Evento</label>
+      <label for="evento" class="col-sm-12 control-label">Nombre del cliente</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="evento" id="evento" placeholder="Nombre del Evento" required/>
+        <input type="text" class="form-control" name="evento" id="evento" placeholder="Nombre del cliente" required/>
       </div>
     </div>
     <div class="form-group">

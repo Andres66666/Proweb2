@@ -9,9 +9,9 @@
       </div>
   <form name="formEvento" id="formEvento" action="nuevoEvento.php" class="form-horizontal" method="POST">
 		<div class="form-group">
-			<label for="evento" class="col-sm-12 control-label">Razón de la cita</label>
+			<label for="evento" class="col-sm-12 control-label">Nombre del cliente</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="evento" id="evento" placeholder="Razón de la cita" required/>
+				<input type="text" class="form-control" name="evento" id="evento" placeholder="Nombre del cliente" required/>
 			</div>
 		</div>
     <div class="form-group">
@@ -27,20 +27,20 @@
       </div>
     </div>
 
-  <div class="col-md-12 form-group">
-  <label for="combo" class=" control-label">Tipo de servicio</label>
-  <select name="color_evento" class="form-control col-sm-10" >
-    <!-- Opciones de la lista -->
-    <option value="" name="color_evento">Servicio</option>
-    <option value="Corte" name="color_evento">Corte</option> <!-- Opción por defecto -->
-    <option value="Peinado" name="color_evento">Peinado</option>
-    <option value="Maquillaje" name="color_evento">Maquillaje</option>
-    <option value="Manicure" name="color_evento">Manicure</option>
-    <option value="Pedicure" name="color_evento">Pedicure</option>
-    <option value="Depilado" name="color_evento">Depilado</option>
-    <option value="Extensiones" name="color_evento">Extensiones</option>
-  </select>
-</div>
+    <div class="col-md-12 form-group">
+      <label for="combo" class=" control-label">Tipo de servicio</label>
+      <select name="color_evento" class="form-control col-sm-10" >
+        <!-- Opciones de la lista -->
+        <option value="" name="color_evento">Servicio</option>
+        <option value="Corte" name="color_evento">Corte</option> <!-- Opción por defecto -->
+        <option value="Peinado" name="color_evento">Peinado</option>
+        <option value="Maquillaje" name="color_evento">Maquillaje</option>
+        <option value="Manicure" name="color_evento">Manicure</option>
+        <option value="Pedicure" name="color_evento">Pedicure</option>
+        <option value="Depilado" name="color_evento">Depilado</option>
+        <option value="Extensiones" name="color_evento">Extensiones</option>
+      </select>
+    </div>
 
 		
 	   <div class="modal-footer">
