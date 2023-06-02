@@ -35,7 +35,7 @@
 </head>
 <body> 
 
-    <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-light bg-light fixed-top nav-custom nav-link" >
+    <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-light bg-light nav-custom nav-link" style="box-shadow: 0 0 15px 0 gray;">
         <div class="container" >
             <a class="navbar-brand mt-2 mt-lg-0" href="#" > <img src="img/logo1.png" width="150px" height="50px" alt="MDB Logo" loading="lazy"/> </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +43,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
                     <div class="navbar-nav ms-auto justify-content-end">
-                        <a class="nav-link logged-out text-black fw-bold" href="#" style="font-family: ITC Bradley Hand Std Bold; font-size: 25px; ">SERVICIOS</a>
                         <a class="nav-link logged-out text-black fw-bold" href="Manuel/mostrarProductos.php"  style="font-family: ITC Bradley Hand Std Bold; font-size: 25px; ">PRODUCTOS</a>
-                        <li class="nav-item dropdown">
+                        <a class="nav-link logged-out text-black fw-bold" href="#seccionGaleria"  style="font-family: ITC Bradley Hand Std Bold; font-size: 25px; ">GALERIA</a>
+                        <a class="nav-link logged-out text-black fw-bold" href="#testimonials"   style="font-family: ITC Bradley Hand Std Bold; font-size: 25px; ">COMENTARIOS</a>
+                        
+                        <!--<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: ITC Bradley Hand Std Bold;  font-size: 25px;">DESCARGAR CATALOGO</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-family: ITC Bradley Hand Std Bold;">
                                     <li><a class="dropdown-item text-black" href="#">PRODUCTOS</a></li>
@@ -54,7 +56,7 @@
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item text-black" href="#">PINADO MUJERES </a></li>
                                 </ul>
-                        </li>
+                        </li>-->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: ITC Bradley Hand Std Bold;  font-size: 25px;">LOGIN</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -86,16 +88,18 @@
             </div>
         </div>
     </div>
-    <div class="my-5" style="margin-left: 790px; padding:60px; margin-top: 500px;  padding-bottom: 150px; color: #000000; width: 950px; height: 50px;  font-size: 20px; ">
-
-            <p>
-                El Salón de belleza Lindsay, 
-                se encarga del arreglo personal en mujeres, varones 
-                donde se realizan cortes, tintes, peinados, maquillado, 
-                uñas, cejas y pestañas y otros.
-            </p>
-
-    </div>
+    <center>
+        <div style=" padding:60px 60px 0 60px; color: #000000; width: 1000px;  font-size: 20px; ">
+    
+                <p>
+                    El Salón de belleza Lindsay, 
+                    se encarga del arreglo personal en mujeres, varones 
+                    donde se realizan cortes, tintes, peinados, maquillado, 
+                    uñas, cejas y pestañas y otros.
+                </p>
+    
+        </div>
+    </center>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Toastify js -->
@@ -126,7 +130,7 @@
             <div class="card-body">
                 <h5 class="card-title text-center">ALTERNATIVE CREAM</h5>
                 <p class="card-text text-center">Crema anti-edad 24 horas, especialmente recomendada para el rostro y cuello con factor de protección solar 15.</p>
-                <a href="#" class="btn btn-primary d-flex justify-content-center">Ir a algún lugar</a>
+                <a href="pdf/Catalogo de cosmeticos.pdf" class="btn btn-primary d-flex justify-content-center">Ir al catalogo</a>
             </div>
         </div>
         <div class="card mx-auto" style="width: 18rem;">
@@ -135,7 +139,7 @@
                 <h5 class="card-title text-center">PAGOW</h5>
                 <p class="card-text text-center">
                     PAGOW 700 piezas de garra de embrague de bala para pendientes pesados caídos, tapones de goma perforados (plata y dorado)</p>
-                <a href="#" class="btn btn-primary d-flex justify-content-center">Ir a algún lugar</a>
+                <a href="pdf/Catalogo de cosmeticos.pdf" class="btn btn-primary d-flex justify-content-center">Ir al catalogo</a>
             </div>
         </div>
         <div class="card mx-auto" style="width: 18rem;">
@@ -143,11 +147,11 @@
             <div class="card-body">
                 <h5 class="card-title text-center">Miss Dior</h5>
                 <p class="card-text text-center">torbellino floral embriagador y refrescante. Una Miss Dior radiante que se lanza de lleno en un torbellino sin fin de vida y amor.</p>
-                <a href="#" class="btn btn-primary d-flex justify-content-center">Ir a algún lugar</a>
+                <a href="pdf/Catalogo de cosmeticos.pdf" class="btn btn-primary d-flex justify-content-center">Ir al catalogo</a>
             </div>
         </div>
     </div><br><br>
-    <div class="container">
+    <div class="container" id="seccionGaleria">
         <h5 class="card-title text-center titulo">Galeria de Fotos</h5>
     </div><br>
     <!-- Galeria de fotos -->
@@ -306,7 +310,7 @@
     
     
     <br><br>
-    <div class="my-5" style="padding-left: 300px; padding-right: 300px;">
+    <div class="my-5" >
         <!-- Footer -->
         <footer class="text-center text-lg-start text-white" style=" background-color: #504f4f;">
             <!-- Grid container -->

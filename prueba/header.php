@@ -29,7 +29,7 @@
   <nav class="navbar">
     <div class="logo_item">
       <i class="bx bx-menu" id="sidebarOpen"></i>
-      <img src="img/logo1.png" alt=""></i>LINDSAY
+      <!--<img src="img/logo1.png" alt=""></i>-->LINDSAY
     </div>
 
     <div class="search_bar">
@@ -40,7 +40,7 @@
       <i class="bi bi-grid"></i>
       <i class='bx bx-sun' id="darkLight"></i>
       <i class='bx bx-bell'></i>
-      <img src="images/profile.jpg" alt="" class="profile" />
+      <!--<img src="images/profile.jpg" alt="" class="profile" />-->
     </div>
   </nav>
 
