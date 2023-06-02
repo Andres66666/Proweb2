@@ -18,6 +18,7 @@
   <link rel="stylesheet" type="text/css" href="css/home.css">
 
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 
   <title>Lindsay</title>
@@ -121,7 +122,7 @@
         <!-- End -->
 
         <li class="item">
-          <a href="../Manuel/productos.php" class="nav_link">
+          <a href="productos.php" class="nav_link">
             <span class="navlink_icon">
               <i class="bx bx-loader-circle"></i>
             </span>
