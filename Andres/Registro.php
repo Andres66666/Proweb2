@@ -451,8 +451,6 @@
             $E_MAIL = $_POST['E_MAIL'];
             $FOTO = addslashes(file_get_contents($_FILES['FOTO']['tmp_name']));
 
-
-            // Realizar consulta para obtener el ID del administrador
             $sql = "SELECT ID_ADMINISTRADOR FROM Administrador";
             $resultado = mysqli_query($conexion, $sql);
 
@@ -519,7 +517,7 @@
                                 <th>Foto</th>
                             </tr>
                             <?php
-                            require '../Manuel/dbcon.php';
+                            require 'dbcon.php';
                             $query = mysqli_query($con, "SELECT * FROM EMPLEADO");
                             $query_run = mysqli_num_rows($query);
                             if ($query_run > 0) {
@@ -567,7 +565,7 @@
                                     <td>
                                         <div class="form-group" style="text-align: center;">
                                             <?php
-                                            require '../Manuel/dbcon.php';
+                                            require 'dbcon.php';
                                             $query = mysqli_query($con, "SELECT * FROM EMPLEADO WHERE ID_EMPLEADO = $ID_accidente");
                                             $query_run = mysqli_num_rows($query);
                                             if ($query_run > 0) {
