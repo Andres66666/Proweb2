@@ -10,57 +10,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>CRUD PRODUCTOS</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f6d6e7, #d6e6f6);
+        }
+    </style>
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
 
-    <link rel="stylesheet" href="css/coverflow.css">
-    <link rel="stylesheet" href="css/productos.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-light bg-light fixed-top nav-custom nav-link">
-        <div class="container">
-            <a class="navbar-brand mt-2 mt-lg-0" href="#"> <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo" loading="lazy" /> </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto justify-content-end">
-                    <a class="nav-link logged-out text-black fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Servicios</a>
-                    <a class="nav-link logged-out text-black fw-bold" href="Hugo/index.php" data-bs-toggle="" data-bs-target="">Citas</a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Descargar Catalogos</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-black" href="#">Productos</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-black" href="#">Peinado Varones </a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-black" href="#">Peinado Mujeres </a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-black fw-bold" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Logeo</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-black nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Iniciar Sesion</a></li>
-                            <li><a class="dropdown-item text-black nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Registrate Clientes</a></li>
-                            <li><a class="dropdown-item text-black nav-link logged-in" href="#" id="logout">Cerrar Sesion</a></li>
-                            <li><a class="nav-link logged-in dropdown-item text-black " href="Andres/Empleados.html" id="logout1">nueva pagina</a></li>
-                            <li><a class="nav-link logged-in dropdown-item text-black " href="index.php" id="logout2">Reservas</a></li>
-                            <li><a class="nav-link logged-in dropdown-item text-black " href="" id="logout3">Reportes</a></li>
-
-                        </ul>
-                    </li>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-
-    <br>
     <br>
     <br>
     <br>
@@ -107,7 +67,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Imagen</label>
-                            <input type="file" name="img" required>
+                            <input type="file" name="imagen" class="form-control" />
                         </div>
                         <div class="mb-3">
                             <label for="">Estado</label>
@@ -140,7 +100,6 @@
                     <div class="modal-body">
                         <div id="errorMessageUpdate" class="alert alert-warning d-none"></div>
                         <input type="hidden" name="product_id" id="product_id">
-
                         <div class="mb-3">
                             <label for="">Producto</label>
                             <input type="text" name="producto" id="producto" class="form-control" />
@@ -262,19 +221,21 @@
                             <tbody>
                                 <?php
                                 require 'dbcon.php';
-                                $query = mysqli_query($con, "SELECT * FROM productos");
-                                $query_run = mysqli_num_rows($query);
-                                if ($query_run > 0) {
-                                    while ($data = mysqli_fetch_array($query)) {
+
+                                $query = "SELECT * FROM productos";
+                                $query_run = mysqli_query($con, $query);
+
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $product) {
                                 ?>
                                         <tr>
-                                            <td><?php echo $data['id'] ?></td>
-                                            <td><?php echo $data['producto'] ?></td>
-                                            <td><?php echo $data['descripcion'] ?></td>
-                                            <td><?php echo $data['categoria'] ?></td>
-                                            <td><?php echo $data['cantidad'] ?></td>
-                                            <td><?php echo $data['precio'] ?></td>
-                                            <td><img height="50px" src="data:image/jpg;base64, <?php echo base64_encode($data['img']) ?>"></td>
+                                            <td><?= $product['id'] ?></td>
+                                            <td><?= $product['producto'] ?></td>
+                                            <td><?= $product['descripcion'] ?></td>
+                                            <td><?= $product['categoria'] ?></td>
+                                            <td><?= $product['cantidad'] ?></td>
+                                            <td><?= $product['precio'] ?></td>
+                                            <td><img src="imagenes/<?= $product['imagen'] ?>" alt="Imagen del producto" style="width: 100px;"></td>
                                             <td>
                                                 <?php if ($product['estado'] == 1) : ?>
                                                     <span class="badge bg-success">Activo</span>
@@ -506,7 +467,6 @@
 
         $(document).on('click', '.deleteProductBtn', function(e) {
             e.preventDefault();
-
             if (confirm('¿Estas seguro de que quieres eliminar este producto?')) {
                 var product_id = $(this).val();
                 $.ajax({
@@ -517,15 +477,12 @@
                         'product_id': product_id
                     },
                     success: function(response) {
-
                         var res = jQuery.parseJSON(response);
                         if (res.status == 500) {
-
                             alert(res.message);
                         } else {
                             alertify.set('notifier', 'position', 'top-right');
                             alertify.success(res.message);
-
                             $('#myTable').load(location.href + " #myTable");
                         }
                     }
