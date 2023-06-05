@@ -1,0 +1,241 @@
+table {
+    margin: 0 auto;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    width: 100%;
+}
+
+td {
+    padding: auto;
+}
+
+nav {
+    background-color: rgb(209, 190, 206);
+}
+
+th {
+    color: black;
+}
+
+.container {
+    background-color: white;
+}
+
+.center-form {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    text-align: center;
+}
+
+.contenido {
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: center;
+    /* Centrar verticalmente */
+    padding: 20px;
+}
+
+.texto1 img {
+    margin-right: 10px;
+    margin-top: 10px;
+    position: relative;
+    width: 210px;
+    height: 210px;
+    float: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: "Latin Modern Roman";
+    font-style: italic;
+    color: white;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: aliceblue;
+}
+
+select {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: white;
+}
+
+option {
+    color: black;
+}
+
+button {
+    background-color: #66ca5d;
+    border: 1px solid #999;
+    color: white;
+    /* Color del texto */
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
+.form-buttons {
+    text-align: center;
+    /* Centrar horizontalmente */
+    margin-top: 10px;
+    /* Espacio entre el formulario y los botones */
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#datos {
+    display: block;
+    /* Mostrar los datos inicialmente */
+}
+
+.oculto {
+    display: none;
+    /* Ocultar los datos cuando se aplique esta clase */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#btn-mas {
+    display: none;
+}
+
+.containerflotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.redes a,
+.btn-mas label {
+    display: block;
+    text-decoration: none;
+    background: #cc2b2b;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.4);
+    transition: all 500ms ease;
+}
+
+.redes a:hover {
+    background: #fff;
+    color: #cc2b2b;
+}
+
+.redes a {
+    margin-bottom: -15px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btn-mas:checked~.redes a {
+    margin-bottom: 10px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-mas label {
+    cursor: pointer;
+    background: #f44141;
+    font-size: 23px;
+}
+
+#btn-mas:checked~.btn-mas label {
+    transform: rotate(135deg);
+    font-size: 25px;
+}
+
+li a {
+    color: black;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* opcional, para centrar las tarjetas horizontalmente */
+}
+
+.card {
+    max-width: 18rem;
+    margin: 10px;
+}
+
+.nav-custom {
+    height: 80px;
+    /* Ajusta el valor según tus necesidades */
+}
+
+.nav-custom .nav-link {
+    font-size: 1.2rem;
+    /* Ajusta el valor según tus necesidades */
+}
+
+.logo {
+    font-size: 1.3rem;
+    /* Ajusta el valor según tus necesidades */
+}
+
+.titulo {
+    font-size: 2rem;
+    /* Ajusta el valor según tus necesidades */
+}
+
+.nav-custom .nav-link:hover {
+    border-radius: 15px;
+    /*espesor del margen*/
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(255, 255, 0, 0.5), green 100%);
+    opacity: 0.8;
+}
+
+.btn-floating:hover {
+    transform: scale(1.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: "Latin Modern Roman";
+    font-style: italic;
+    color: black;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
